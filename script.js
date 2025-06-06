@@ -83,41 +83,36 @@ function initializeWorldMap() {
             iconAnchor: [15, 15]
         });
         
+        // Create popup content with image and story
+        const popupContent = `
+            <div class="map-popup-content">
+                <img src="${location.image}" alt="${location.name}" class="map-popup-image">
+                <div class="map-popup-text">
+                    <h3 class="map-popup-title">${location.name}</h3>
+                    <p class="map-popup-story">${location.story}</p>
+                </div>
+            </div>
+        `;
+        
         const marker = L.marker([location.lat, location.lng], { icon: customIcon })
             .addTo(map)
-            .bindPopup(`<b>${location.name}</b><br>Click to read more!`)
-            .on('click', () => openLocationModal(index));
+            .bindPopup(popupContent, {
+                maxWidth: 350,
+                minWidth: 250,
+                className: 'custom-popup'
+            });
+        
+        // Add click event to fly to location
+        marker.on('click', () => {
+            map.flyTo([location.lat, location.lng], 8, {
+                animate: true,
+                duration: 2
+            });
+        });
     });
 }
 
-function openLocationModal(locationIndex) {
-    const location = locations[locationIndex];
-    const modal = document.getElementById('location-modal');
-    const modalImage = document.getElementById('modal-image');
-    const modalTitle = document.getElementById('modal-title');
-    const modalStory = document.getElementById('modal-story');
-    
-    modalImage.src = location.image;
-    modalImage.alt = location.name;
-    modalTitle.textContent = location.name;
-    modalStory.textContent = location.story;
-    
-    modal.style.display = 'block';
-}
-
 function setupModal() {
-    const modal = document.getElementById('location-modal');
-    const closeBtn = document.querySelector('.close');
-    
-    // Close modal when clicking the X
-    closeBtn.onclick = function() {
-        modal.style.display = 'none';
-    }
-    
-    // Close modal when clicking outside of it
-    window.onclick = function(event) {
-        if (event.target === modal) {
-            modal.style.display = 'none';
-        }
-    }
+    // Modal functionality is no longer needed since we're using in-map popups
+    // This function is kept for compatibility but can be removed
 }
