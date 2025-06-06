@@ -61,88 +61,118 @@ const locations = [
 ];
 
 function initializeWorldMap() {
-    // Set Mapbox access token (using a public token for demo - you should get your own)
-    mapboxgl.accessToken = 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw';
+    // Set Cesium Ion access token (using default token)
+    Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJlYWE1OWUxNy1mMWZiLTQzYjYtYTQ0OS1kMWFjYmFkNjc5YzciLCJpZCI6NTc3MzMsImlhdCI6MTYyNzg0NTE4Mn0.XcKpgANiY19MC4bdFUXMVEBToBmqS8kuYpUlxJHYZxk';
     
-    // Initialize the map with 3D satellite view
-    const map = new mapboxgl.Map({
-        container: 'world-map',
-        style: 'mapbox://styles/mapbox/satellite-v9', // Satellite view
-        center: [55.2708, 25.2048], // Dubai coordinates
-        zoom: 2,
-        pitch: 45, // 3D tilt
-        bearing: 0,
-        antialias: true
+    // Initialize the Cesium viewer with 3D satellite imagery
+    const viewer = new Cesium.Viewer('world-map', {
+        terrainProvider: Cesium.createWorldTerrain(),
+        imageryProvider: new Cesium.IonImageryProvider({ assetId: 2 }), // Bing Maps satellite imagery
+        baseLayerPicker: false,
+        geocoder: false,
+        homeButton: false,
+        sceneModePicker: false,
+        navigationHelpButton: false,
+        animation: false,
+        timeline: false,
+        fullscreenButton: false,
+        vrButton: false
     });
     
-    // Add navigation controls
-    map.addControl(new mapboxgl.NavigationControl());
+    // Enable lighting based on sun/moon positions
+    viewer.scene.globe.enableLighting = true;
     
-    // Add 3D terrain
-    map.on('style.load', () => {
-        map.addSource('mapbox-dem', {
-            'type': 'raster-dem',
-            'url': 'mapbox://mapbox.mapbox-terrain-dem-v1',
-            'tileSize': 512,
-            'maxzoom': 14
-        });
-        map.setTerrain({ 'source': 'mapbox-dem', 'exaggeration': 1.5 });
-        
-        // Add sky layer for 3D effect
-        map.addLayer({
-            'id': 'sky',
-            'type': 'sky',
-            'paint': {
-                'sky-type': 'atmosphere',
-                'sky-atmosphere-sun': [0.0, 0.0],
-                'sky-atmosphere-sun-intensity': 15
-            }
-        });
+    // Set initial camera position (global view)
+    viewer.camera.setView({
+        destination: Cesium.Cartesian3.fromDegrees(55.2708, 25.2048, 15000000),
+        orientation: {
+            heading: 0.0,
+            pitch: -0.5,
+            roll: 0.0
+        }
     });
     
     // Add markers for each location
     locations.forEach((location, index) => {
-        // Create custom marker element
-        const markerElement = document.createElement('div');
-        markerElement.className = 'custom-marker';
-        markerElement.innerHTML = '📍';
-        
-        // Create popup content
-        const popupContent = `
-            <div class="popup-content">
-                <img src="${location.image}" alt="${location.name}" class="popup-image">
-                <div class="popup-text">
-                    <h3 class="popup-title">${location.name}</h3>
-                    <p class="popup-story">${location.story}</p>
-                </div>
-            </div>
-        `;
-        
-        // Create popup
-        const popup = new mapboxgl.Popup({
-            offset: 25,
-            closeButton: true,
-            closeOnClick: false,
-            maxWidth: '350px'
-        }).setHTML(popupContent);
-        
-        // Create marker and add to map
-        new mapboxgl.Marker(markerElement)
-            .setLngLat([location.lng, location.lat])
-            .setPopup(popup)
-            .addTo(map);
-        
-        // Add click event to marker
-        markerElement.addEventListener('click', () => {
-            // Fly to location with 3D view
-            map.flyTo({
-                center: [location.lng, location.lat],
-                zoom: 12,
-                pitch: 60,
-                bearing: 0,
-                essential: true,
-                duration: 2000
-            });
+        // Create billboard (marker) for each location
+        const entity = viewer.entities.add({
+            position: Cesium.Cartesian3.fromDegrees(location.lng, location.lat),
+            billboard: {
+                image: 'data:image/svg+xml;base64,' + btoa(`
+                    <svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="24" cy="24" r="20" fill="#3498db" stroke="#fff" stroke-width="4"/>
+                        <text x="24" y="30" text-anchor="middle" fill="white" font-size="20">📍</text>
+                    </svg>
+                `),
+                scale: 1.0,
+                verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
+                heightReference: Cesium.HeightReference.CLAMP_TO_GROUND
+            },
+            label: {
+                text: location.name,
+                font: '14pt sans-serif',
+                fillColor: Cesium.Color.WHITE,
+                outlineColor: Cesium.Color.BLACK,
+                outlineWidth: 2,
+                style: Cesium.LabelStyle.FILL_AND_OUTLINE,
+                verticalOrigin: Cesium.VerticalOrigin.TOP,
+                pixelOffset: new Cesium.Cartesian2(0, 32),
+                heightReference: Cesium.HeightReference.CLAMP_TO_GROUND
+            }
         });
+        
+        // Store location data in entity for later use
+        entity.locationData = location;
     });
+    
+    // Handle click events on entities
+    viewer.selectedEntityChanged.addEventListener(function(selectedEntity) {
+        if (selectedEntity && selectedEntity.locationData) {
+            const location = selectedEntity.locationData;
+            
+            // Fly to the location
+            viewer.camera.flyTo({
+                destination: Cesium.Cartesian3.fromDegrees(location.lng, location.lat, 5000),
+                orientation: {
+                    heading: 0.0,
+                    pitch: -0.5,
+                    roll: 0.0
+                },
+                duration: 3.0
+            });
+            
+            // Show info box
+            showLocationInfo(location);
+        }
+    });
+}
+
+function showLocationInfo(location) {
+    // Remove existing info box
+    const existingBox = document.querySelector('.location-info-box');
+    if (existingBox) {
+        existingBox.remove();
+    }
+    
+    // Create info box
+    const infoBox = document.createElement('div');
+    infoBox.className = 'location-info-box';
+    infoBox.style.position = 'absolute';
+    infoBox.style.top = '20px';
+    infoBox.style.right = '20px';
+    infoBox.style.zIndex = '1000';
+    
+    infoBox.innerHTML = `
+        <div class="info-box-content">
+            <img src="${location.image}" alt="${location.name}" class="info-box-image">
+            <div class="info-box-text">
+                <h3 class="info-box-title">${location.name}</h3>
+                <p class="info-box-story">${location.story}</p>
+                <button onclick="this.parentElement.parentElement.parentElement.remove()" style="margin-top: 10px; padding: 5px 10px; background: #3498db; color: white; border: none; border-radius: 5px; cursor: pointer;">Close</button>
+            </div>
+        </div>
+    `;
+    
+    // Add to map container
+    document.querySelector('.map-container').appendChild(infoBox);
 }
