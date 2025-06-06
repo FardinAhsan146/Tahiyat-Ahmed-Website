@@ -83,27 +83,20 @@ function initializeWorldMap() {
             iconAnchor: [15, 15]
         });
         
-        // Create popup content with image and story
+        // Create simple popup content
         const popupContent = `
-            <div class="map-popup-content">
-                <img src="${location.image}" alt="${location.name}" class="map-popup-image" loading="lazy">
-                <div class="map-popup-text">
-                    <h3 class="map-popup-title">${location.name}</h3>
-                    <p class="map-popup-story">${location.story}</p>
+            <div style="width: 300px; padding: 0;">
+                <img src="${location.image}" alt="${location.name}" style="width: 100%; height: 150px; object-fit: cover; display: block;">
+                <div style="padding: 15px;">
+                    <h3 style="margin: 0 0 10px 0; font-size: 1.2rem; color: #333;">${location.name}</h3>
+                    <p style="margin: 0; font-size: 0.9rem; line-height: 1.4; color: #666;">${location.story}</p>
                 </div>
             </div>
         `;
         
         const marker = L.marker([location.lat, location.lng], { icon: customIcon })
             .addTo(map)
-            .bindPopup(popupContent, {
-                maxWidth: 320,
-                className: 'custom-popup',
-                closeButton: true,
-                autoClose: true,
-                autoPan: false, // Completely disable autopan
-                keepInView: false
-            });
+            .bindPopup(popupContent);
         
         // Add hover effect for better UX
         marker.on('mouseover', function() {
