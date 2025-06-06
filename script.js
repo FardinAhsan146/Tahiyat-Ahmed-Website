@@ -31,16 +31,3 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
-
-// Simple animation for hero section
-window.addEventListener('load', function() {
-    const heroContent = document.querySelector('.hero-content');
-    heroContent.style.opacity = '0';
-    heroContent.style.transform = 'translateY(30px)';
-    heroContent.style.transition = 'opacity 1s ease, transform 1s ease';
-    
-    setTimeout(() => {
-        heroContent.style.opacity = '1';
-        heroContent.style.transform = 'translateY(0)';
-    }, 100);
-});
