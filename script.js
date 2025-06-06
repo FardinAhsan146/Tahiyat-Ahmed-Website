@@ -105,59 +105,8 @@ function initializeWorldMap() {
                 closeOnEscapeKey: true,
                 keepInView: true,
                 autoPan: true,
-                autoPanPadding: [50, 50], // Increased padding to ensure popup fits
-                autoPanPaddingTopLeft: [50, 50],
-                autoPanPaddingBottomRight: [50, 50]
+                autoPanPadding: L.point(80, 80) // Use L.point for better control
             });
-        
-        // Add click event to open popup with proper positioning
-        marker.on('click', () => {
-            // First close any open popups
-            map.closePopup();
-            
-            // Open the popup
-            marker.openPopup();
-            
-            // Ensure the popup is fully visible by adjusting the map view
-            setTimeout(() => {
-                const popup = marker.getPopup();
-                if (popup && popup.isOpen()) {
-                    // Get popup position and size
-                    const popupElement = popup.getElement();
-                    if (popupElement) {
-                        const mapContainer = map.getContainer();
-                        const mapRect = mapContainer.getBoundingClientRect();
-                        const popupRect = popupElement.getBoundingClientRect();
-                        
-                        // Check if popup is outside map bounds and adjust
-                        let needsPan = false;
-                        let panX = 0;
-                        let panY = 0;
-                        
-                        if (popupRect.left < mapRect.left) {
-                            panX = mapRect.left - popupRect.left + 20;
-                            needsPan = true;
-                        }
-                        if (popupRect.right > mapRect.right) {
-                            panX = mapRect.right - popupRect.right - 20;
-                            needsPan = true;
-                        }
-                        if (popupRect.top < mapRect.top) {
-                            panY = mapRect.top - popupRect.top + 20;
-                            needsPan = true;
-                        }
-                        if (popupRect.bottom > mapRect.bottom) {
-                            panY = mapRect.bottom - popupRect.bottom - 20;
-                            needsPan = true;
-                        }
-                        
-                        if (needsPan) {
-                            map.panBy([panX, panY], { animate: true, duration: 0.5 });
-                        }
-                    }
-                }
-            }, 100);
-        });
         
         // Add hover effect for better UX
         marker.on('mouseover', function() {
