@@ -1,5 +1,66 @@
-// Smooth scrolling for navigation links
-document.addEventListener('DOMContentLoaded', function() {
+let contentData = null;
+
+// Load content from JSON file
+async function loadContent() {
+    try {
+        const response = await fetch('content.json');
+        contentData = await response.json();
+        populateContent();
+        initializeWorldMap();
+        setupNavigation();
+    } catch (error) {
+        console.error('Error loading content:', error);
+        // Fallback content if JSON fails to load
+        document.getElementById('page-title').textContent = 'Tahiyat Ahmed - Portfolio';
+        document.getElementById('site-name').textContent = 'Tahiyat Ahmed';
+    }
+}
+
+function populateContent() {
+    if (!contentData) return;
+    
+    // Update page title and site name
+    document.getElementById('page-title').textContent = contentData.siteInfo.title;
+    document.getElementById('site-name').textContent = contentData.siteInfo.name;
+    
+    // Update navigation
+    const navLinks = document.getElementById('nav-links');
+    navLinks.innerHTML = `
+        <li><a href="#about">${contentData.navigation.about}</a></li>
+        <li><a href="#places">${contentData.navigation.places}</a></li>
+        <li><a href="#contact">${contentData.navigation.contact}</a></li>
+    `;
+    
+    // Update about section
+    document.getElementById('about-title').textContent = contentData.sections.about.title;
+    document.getElementById('about-description').textContent = contentData.sections.about.description;
+    const aboutImage = document.getElementById('about-image');
+    aboutImage.src = contentData.sections.about.image;
+    aboutImage.alt = contentData.siteInfo.name;
+    
+    // Update places section
+    document.getElementById('places-title').textContent = contentData.sections.places.title;
+    document.getElementById('places-description').textContent = contentData.sections.places.description;
+    
+    // Update contact section
+    document.getElementById('contact-title').textContent = contentData.sections.contact.title;
+    document.getElementById('contact-description').textContent = contentData.sections.contact.description;
+    
+    // Update social links
+    const socialLinks = document.getElementById('social-links');
+    socialLinks.innerHTML = contentData.socialMedia.map(social => `
+        <a href="${social.url}" target="_blank" class="social-link ${social.name.toLowerCase()}">
+            <i class="${social.icon} social-icon"></i>
+            <span class="social-text">${social.name}</span>
+        </a>
+    `).join('');
+    
+    // Update footer
+    document.getElementById('footer-copyright').textContent = contentData.footer.copyright;
+}
+
+function setupNavigation() {
+    // Smooth scrolling for navigation links
     const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
     
     navLinks.forEach(link => {
@@ -30,40 +91,11 @@ document.addEventListener('DOMContentLoaded', function() {
             header.style.background = '#2c3e50';
         }
     });
-    
-    // Initialize the world map
-    initializeWorldMap();
-    
-    // Modal functionality
-    setupModal();
-});
-
-// Sample location data - you can add more locations here
-const locations = [
-    {
-        name: "Dubai, UAE",
-        lat: 25.2048,
-        lng: 55.2708,
-        image: "photos/Capture.PNG",
-        story: "This is where I currently live and work. Dubai is an amazing city with incredible architecture and a vibrant multicultural atmosphere."
-    },
-    {
-        name: "New York, USA",
-        lat: 40.7128,
-        lng: -74.0060,
-        image: "photos/Capture.PNG",
-        story: "The city that never sleeps! I visited New York and was amazed by the energy, the skyscrapers, and the diversity of people and cultures."
-    },
-    {
-        name: "London, UK",
-        lat: 51.5074,
-        lng: -0.1278,
-        image: "photos/Capture.PNG",
-        story: "London's rich history and beautiful architecture left a lasting impression on me. From Big Ben to the Thames, every corner tells a story."
-    }
-];
+}
 
 function initializeWorldMap() {
+    if (!contentData || !contentData.locations) return;
+    
     // Initialize the map with satellite view
     const map = L.map('world-map').setView([25.2048, 55.2708], 2);
     
@@ -73,8 +105,8 @@ function initializeWorldMap() {
         maxZoom: 18
     }).addTo(map);
     
-    // Add markers for each location
-    locations.forEach((location, index) => {
+    // Add markers for each location from content data
+    contentData.locations.forEach((location, index) => {
         // Create simple marker
         const marker = L.marker([location.lat, location.lng])
             .addTo(map)
@@ -82,6 +114,7 @@ function initializeWorldMap() {
     });
 }
 
-function setupModal() {
-    // Not needed
-}
+// Initialize everything when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    loadContent();
+});

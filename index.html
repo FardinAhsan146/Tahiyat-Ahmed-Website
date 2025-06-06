@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tahiyat Ahmed - Portfolio</title>
+    <title id="page-title">Loading...</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
     <link rel="stylesheet" href="styles.css">
@@ -12,12 +12,10 @@
     <header>
         <nav>
             <div class="logo">
-                <h1>Tahiyat Ahmed</h1>
+                <h1 id="site-name">Loading...</h1>
             </div>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#places">Places I have been</a></li>
-                <li><a href="#contact">Contact</a></li>
+            <ul class="nav-links" id="nav-links">
+                <!-- Navigation will be loaded from content.json -->
             </ul>
         </nav>
     </header>
@@ -25,13 +23,13 @@
     <main>
         <section id="about" class="about">
             <div class="container">
-                <h2>About Me</h2>
+                <h2 id="about-title">Loading...</h2>
                 <div class="about-content">
                     <div class="about-image">
-                        <img src="photos/Capture.PNG" alt="Tahiyat Ahmed" />
+                        <img id="about-image" src="" alt="" />
                     </div>
                     <div class="about-text">
-                        <p>This section will contain information about Tahiyat Ahmed.</p>
+                        <p id="about-description">Loading...</p>
                     </div>
                 </div>
             </div>
@@ -39,8 +37,8 @@
 
         <section id="places" class="places">
             <div class="container">
-                <h2>Places I have been</h2>
-                <p>Click on the markers to explore the places I've visited and read about my experiences.</p>
+                <h2 id="places-title">Loading...</h2>
+                <p id="places-description">Loading...</p>
                 <div class="map-container">
                     <div id="world-map"></div>
                 </div>
@@ -49,28 +47,17 @@
 
         <section id="contact" class="contact">
             <div class="container">
-                <h2>Contact</h2>
-                <p>Get in touch with me through social media.</p>
-                <div class="social-links">
-                    <a href="https://www.instagram.com/tahiyat_ahmed/" target="_blank" class="social-link instagram">
-                        <i class="fab fa-instagram social-icon"></i>
-                        <span class="social-text">Instagram</span>
-                    </a>
-                    <a href="https://www.facebook.com/syedatahiyat.ahmed/" target="_blank" class="social-link facebook">
-                        <i class="fab fa-facebook-f social-icon"></i>
-                        <span class="social-text">Facebook</span>
-                    </a>
-                    <a href="https://www.linkedin.com/in/syeda-tahiyat-ahmed-b798a0327/" target="_blank" class="social-link linkedin">
-                        <i class="fab fa-linkedin-in social-icon"></i>
-                        <span class="social-text">LinkedIn</span>
-                    </a>
+                <h2 id="contact-title">Loading...</h2>
+                <p id="contact-description">Loading...</p>
+                <div class="social-links" id="social-links">
+                    <!-- Social links will be loaded from content.json -->
                 </div>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2025 Tahiyat Ahmed. All rights reserved.</p>
+        <p id="footer-copyright">Loading...</p>
     </footer>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
