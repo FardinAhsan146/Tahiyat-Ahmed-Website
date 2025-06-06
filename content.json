@@ -1,49 +1,56 @@
 {
   "siteInfo": {
     "name": "Tahiyat Ahmed",
-    "title": "Tahiyat Ahmed - Portfolio"
+    "title": "Tahiyat Ahmed - Global Citizen & Creative Baker"
   },
   "navigation": {
     "about": "About",
-    "places": "Places I have been",
-    "contact": "Contact"
+    "places": "My Journey",
+    "contact": "Connect"
   },
   "sections": {
     "about": {
-      "title": "About Me",
-      "description": "This section will contain information about Tahiyat Ahmed.",
+      "title": "Hello, I'm Tahiyat",
+      "description": "A passionate baker and global citizen who finds joy in creating delicious moments. From the vibrant streets of Dhaka to the cosmopolitan energy of Abu Dhabi, the historic charm of London, and the endless possibilities of New York City, my journey has been flavored with diverse cultures and sweet experiences. Currently studying at NYUAD, I blend my love for flowers, baking, and entrepreneurship into my own baking company, where every creation tells a story.",
       "image": "photos/Capture.PNG"
     },
     "places": {
-      "title": "Places I have been",
-      "description": "Click on the markers to explore the places I've visited and read about my experiences."
+      "title": "My Global Journey",
+      "description": "Each city has added its own unique flavor to my story. Explore the places that have shaped who I am today."
     },
     "contact": {
-      "title": "Contact",
-      "description": "Get in touch with me through social media."
+      "title": "Let's Connect",
+      "description": "Whether you're interested in my baking creations or just want to say hello, I'd love to hear from you."
     }
   },
   "locations": [
     {
-      "name": "Dubai, UAE",
-      "lat": 25.2048,
-      "lng": 55.2708,
+      "name": "Dhaka, Bangladesh",
+      "lat": 23.8103,
+      "lng": 90.4125,
       "image": "photos/Capture.PNG",
-      "story": "This is where I currently live and work. Dubai is an amazing city with incredible architecture and a vibrant multicultural atmosphere."
+      "story": "Where it all began. Dhaka's rich culinary traditions and vibrant culture laid the foundation for my love of creating and sharing food. The warmth of Bengali hospitality continues to inspire my baking philosophy."
     },
     {
-      "name": "New York, USA",
-      "lat": 40.7128,
-      "lng": -74.0060,
+      "name": "Abu Dhabi, UAE",
+      "lat": 24.4539,
+      "lng": 54.3773,
       "image": "photos/Capture.PNG",
-      "story": "The city that never sleeps! I visited New York and was amazed by the energy, the skyscrapers, and the diversity of people and cultures."
+      "story": "My current home and the place where I'm pursuing my dreams at NYUAD. This city of innovation and tradition perfectly mirrors my journey of blending cultural heritage with modern creativity."
     },
     {
       "name": "London, UK",
       "lat": 51.5074,
       "lng": -0.1278,
       "image": "photos/Capture.PNG",
-      "story": "London's rich history and beautiful architecture left a lasting impression on me. From Big Ben to the Thames, every corner tells a story."
+      "story": "London taught me the art of afternoon tea and refined pastries. The city's blend of tradition and innovation deeply influenced my approach to baking and business."
+    },
+    {
+      "name": "New York City, USA",
+      "lat": 40.7128,
+      "lng": -74.0060,
+      "image": "photos/Capture.PNG",
+      "story": "The city that never sleeps opened my eyes to endless culinary possibilities. NYC's diverse food scene and entrepreneurial spirit fuel my ambition to grow my baking company."
     }
   ],
   "socialMedia": [
@@ -64,6 +71,6 @@
     }
   ],
   "footer": {
-    "copyright": "© 2025 Tahiyat Ahmed. All rights reserved."
+    "copyright": "© 2025 Tahiyat Ahmed. Crafted with love and a sprinkle of flour."
   }
 }
