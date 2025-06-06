@@ -103,9 +103,9 @@ function initializeWorldMap() {
                 closeButton: true,
                 autoClose: true,
                 closeOnEscapeKey: true,
-                keepInView: true,
+                keepInView: false, // Disable to prevent repositioning on hover
                 autoPan: true,
-                autoPanPadding: L.point(80, 80) // Use L.point for better control
+                autoPanPadding: L.point(50, 50)
             });
         
         // Add hover effect for better UX
