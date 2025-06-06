@@ -30,4 +30,85 @@ document.addEventListener('DOMContentLoaded', function() {
             header.style.background = '#2c3e50';
         }
     });
+    
+    // Initialize the world map
+    initializeWorldMap();
+    
+    // Modal functionality
+    setupModal();
 });
+
+// Sample location data - you can add more locations here
+const locations = [
+    {
+        name: "Dubai, UAE",
+        lat: 25.2048,
+        lng: 55.2708,
+        image: "photos/Capture.PNG", // Using the existing image as placeholder
+        story: "This is where I currently live and work. Dubai is an amazing city with incredible architecture and a vibrant multicultural atmosphere."
+    },
+    {
+        name: "New York, USA",
+        lat: 40.7128,
+        lng: -74.0060,
+        image: "photos/Capture.PNG", // Placeholder - you can add more images
+        story: "The city that never sleeps! I visited New York and was amazed by the energy, the skyscrapers, and the diversity of people and cultures."
+    },
+    {
+        name: "London, UK",
+        lat: 51.5074,
+        lng: -0.1278,
+        image: "photos/Capture.PNG", // Placeholder
+        story: "London's rich history and beautiful architecture left a lasting impression on me. From Big Ben to the Thames, every corner tells a story."
+    }
+];
+
+function initializeWorldMap() {
+    // Initialize the map
+    const map = L.map('world-map').setView([25.2048, 55.2708], 2);
+    
+    // Add tile layer
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+    
+    // Add markers for each location
+    locations.forEach((location, index) => {
+        const marker = L.marker([location.lat, location.lng])
+            .addTo(map)
+            .bindPopup(`<b>${location.name}</b><br>Click to read more!`)
+            .on('click', () => openLocationModal(index));
+    });
+}
+
+function openLocationModal(locationIndex) {
+    const location = locations[locationIndex];
+    const modal = document.getElementById('location-modal');
+    const modalImage = document.getElementById('modal-image');
+    const modalTitle = document.getElementById('modal-title');
+    const modalStory = document.getElementById('modal-story');
+    
+    modalImage.src = location.image;
+    modalImage.alt = location.name;
+    modalTitle.textContent = location.name;
+    modalStory.textContent = location.story;
+    
+    modal.style.display = 'block';
+}
+
+function setupModal() {
+    const modal = document.getElementById('location-modal');
+    const closeBtn = document.querySelector('.close');
+    
+    // Close modal when clicking the X
+    closeBtn.onclick = function() {
+        modal.style.display = 'none';
+    }
+    
+    // Close modal when clicking outside of it
+    window.onclick = function(event) {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    }
+}

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tahiyat Ahmed - Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -15,7 +16,7 @@
             </div>
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#places">Places I have been</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -36,10 +37,27 @@
             </div>
         </section>
 
-        <section id="portfolio" class="portfolio">
+        <section id="places" class="places">
             <div class="container">
-                <h2>Portfolio</h2>
-                <p>This section will showcase projects and work.</p>
+                <h2>Places I have been</h2>
+                <p>Click on the markers to explore the places I've visited and read about my experiences.</p>
+                <div class="map-container">
+                    <div id="world-map"></div>
+                </div>
+                
+                <!-- Modal for location details -->
+                <div id="location-modal" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <div class="modal-body">
+                            <img id="modal-image" src="" alt="Location image">
+                            <div class="modal-text">
+                                <h3 id="modal-title"></h3>
+                                <p id="modal-story"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -69,6 +87,7 @@
         <p>&copy; 2025 Tahiyat Ahmed. All rights reserved.</p>
     </footer>
 
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
