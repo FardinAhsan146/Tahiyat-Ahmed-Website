@@ -98,14 +98,11 @@ function initializeWorldMap() {
             .addTo(map)
             .bindPopup(popupContent, {
                 maxWidth: 320,
-                minWidth: 280,
                 className: 'custom-popup',
                 closeButton: true,
                 autoClose: true,
-                closeOnEscapeKey: true,
-                keepInView: false, // Disable to prevent repositioning on hover
-                autoPan: true,
-                autoPanPadding: L.point(50, 50)
+                autoPan: false, // Completely disable autopan
+                keepInView: false
             });
         
         // Add hover effect for better UX
