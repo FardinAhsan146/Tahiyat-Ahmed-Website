@@ -86,7 +86,7 @@ function initializeWorldMap() {
         // Create popup content with image and story
         const popupContent = `
             <div class="map-popup-content">
-                <img src="${location.image}" alt="${location.name}" class="map-popup-image">
+                <img src="${location.image}" alt="${location.name}" class="map-popup-image" loading="lazy">
                 <div class="map-popup-text">
                     <h3 class="map-popup-title">${location.name}</h3>
                     <p class="map-popup-story">${location.story}</p>
@@ -97,17 +97,41 @@ function initializeWorldMap() {
         const marker = L.marker([location.lat, location.lng], { icon: customIcon })
             .addTo(map)
             .bindPopup(popupContent, {
-                maxWidth: 350,
-                minWidth: 250,
-                className: 'custom-popup'
+                maxWidth: 320,
+                minWidth: 280,
+                className: 'custom-popup',
+                closeButton: true,
+                autoClose: true,
+                closeOnEscapeKey: true,
+                keepInView: true,
+                autoPan: true,
+                autoPanPadding: [20, 20]
             });
         
-        // Add click event to fly to location
+        // Add click event to fly to location and open popup
         marker.on('click', () => {
-            map.flyTo([location.lat, location.lng], 8, {
+            // Close any open popups first
+            map.closePopup();
+            
+            // Fly to location
+            map.flyTo([location.lat, location.lng], 10, {
                 animate: true,
-                duration: 2
+                duration: 1.5
             });
+            
+            // Open popup after animation
+            setTimeout(() => {
+                marker.openPopup();
+            }, 1600);
+        });
+        
+        // Add hover effect for better UX
+        marker.on('mouseover', function() {
+            this.getElement().style.transform = 'scale(1.1)';
+        });
+        
+        marker.on('mouseout', function() {
+            this.getElement().style.transform = 'scale(1)';
         });
     });
 }
