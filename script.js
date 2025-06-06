@@ -63,8 +63,6 @@ const locations = [
     }
 ];
 
-let activeLocationCard = null;
-
 function initializeWorldMap() {
     // Initialize the map with satellite view
     const map = L.map('world-map').setView([25.2048, 55.2708], 2);
@@ -77,91 +75,13 @@ function initializeWorldMap() {
     
     // Add markers for each location
     locations.forEach((location, index) => {
-        // Create custom marker
-        const customIcon = L.divIcon({
-            className: 'custom-marker',
-            html: '📍',
-            iconSize: [30, 30],
-            iconAnchor: [15, 15]
-        });
-        
-        const marker = L.marker([location.lat, location.lng], { icon: customIcon })
-            .addTo(map);
-        
-        // Add click event to show location card
-        marker.on('click', function() {
-            showLocationCard(location, map);
-        });
-        
-        // Add hover effect
-        marker.on('mouseover', function() {
-            this.getElement().style.transform = 'scale(1.1)';
-            this.getElement().style.zIndex = '1000';
-        });
-        
-        marker.on('mouseout', function() {
-            this.getElement().style.transform = 'scale(1)';
-            this.getElement().style.zIndex = 'auto';
-        });
-    });
-    
-    // Close location card when clicking on map
-    map.on('click', function() {
-        hideLocationCard();
+        // Create simple marker
+        const marker = L.marker([location.lat, location.lng])
+            .addTo(map)
+            .bindPopup(`<b>${location.name}</b><br><img src="${location.image}" width="200"><br>${location.story}`);
     });
 }
-
-function showLocationCard(location, map) {
-    // Hide existing card
-    hideLocationCard();
-    
-    // Create location card
-    const card = document.createElement('div');
-    card.className = 'location-card';
-    card.innerHTML = `
-        <div class="location-card-header">
-            <h3>${location.name}</h3>
-            <button class="location-card-close" onclick="hideLocationCard()">×</button>
-        </div>
-        <img src="${location.image}" alt="${location.name}" class="location-card-image">
-        <div class="location-card-content">
-            <p>${location.story}</p>
-        </div>
-    `;
-    
-    // Add to map container
-    const mapContainer = document.getElementById('world-map');
-    mapContainer.appendChild(card);
-    
-    // Store reference
-    activeLocationCard = card;
-    
-    // Prevent event bubbling
-    card.addEventListener('click', function(e) {
-        e.stopPropagation();
-    });
-    
-    // Animate in
-    setTimeout(() => {
-        card.classList.add('show');
-    }, 10);
-}
-
-function hideLocationCard() {
-    if (activeLocationCard) {
-        activeLocationCard.classList.remove('show');
-        setTimeout(() => {
-            if (activeLocationCard && activeLocationCard.parentNode) {
-                activeLocationCard.parentNode.removeChild(activeLocationCard);
-            }
-            activeLocationCard = null;
-        }, 300);
-    }
-}
-
-// Make function globally available
-window.hideLocationCard = hideLocationCard;
 
 function setupModal() {
-    // Not needed anymore
+    // Not needed
 }
