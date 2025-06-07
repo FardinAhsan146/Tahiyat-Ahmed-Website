@@ -23,7 +23,7 @@ const contentData = {
     },
     "places": {
       "title": "Places I have been",
-      "description": "I didn't travel abraod at all until I went to University. And then Click on the markers to explore the places I've visited and read about my experiences! "
+      "description": "I didn't travel abroad at all until I went to University. And then I visited 12 countries in 2 years. Getting to visit all these countries are a core life experience for me, and you should come along with me! Click on the markers to explore the places I've visited and read about my experiences! "
     },
     "contact": {
       "title": "Contact",
@@ -65,7 +65,7 @@ const contentData = {
       "lat": 40.7128,
       "lng": -74.0060,
       "image": "country_photos/america.jpg",
-      "story": "The concrete jungle where dreams are made of. I've dreamt of doing a study-abroad at NYU and living that NYC girly life since my first day at NYAUD."
+      "story": "The concrete jungle where dreams are made of. I've dreamt of doing a study-abroad at NYU and living that NYC girly life since my first day at NYAUD. And for Winter 2025, that dream became a reality."
     },
     {
       "name": "Edinburgh, Scotland",
@@ -79,14 +79,14 @@ const contentData = {
       "lat": 51.4816,
       "lng": -3.1791,
       "image": "country_photos/wales.jpg",
-      "story": "Studying abroad in Londom means I can just take a weekend trip to Wales. And wear a Saree in the streets of Cardiff!"
+      "story": "Studying abroad in Londom meant I can just take a weekend trip to Wales. Oh and I wore a Saree in the streets of Cardiff!"
     },
     {
       "name": "Valletta, Malta",
       "lat": 35.8989,
       "lng": 14.5146,
       "image": "country_photos/Malta.jpg",
-      "story": "Yes, Malta is a country and I visited it. "
+      "story": "Yes, Malta is a country and I visited it."
     },
     {
       "name": "Tirana, Albania",
@@ -107,7 +107,7 @@ const contentData = {
       "lat": 41.7151,
       "lng": 44.8271,
       "image": "country_photos/georgia.jpg",
-      "story": "My first international trip with my friends!"
+      "story": "My first international trip with my friends! I might go back soon! 🌚"
     },
     {
       "name": "New Delhi, India",
