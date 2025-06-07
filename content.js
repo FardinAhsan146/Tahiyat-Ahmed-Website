@@ -65,7 +65,7 @@ const contentData = {
       "lat": 40.7128,
       "lng": -74.0060,
       "image": "country_photos/america.jpg",
-      "story": "The concrete jungle where dreams are made of. I've dreamt of doing a study-abroad at NYU and living that NYC girly life since my first day at NYAUD. And for Winter 2025, that dream became a reality."
+      "story": "The concrete jungle where dreams are made of. I've dreamt of doing a study-abroad at NYU and living that NYC girly life since my first day at NYAUD. I'm happy to say that dream is now a reality."
     },
     {
       "name": "Edinburgh, Scotland",
