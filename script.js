@@ -62,6 +62,18 @@ function populateContent() {
         </a>
     `).join('');
     
+    // Update bakery section
+    document.getElementById('bakery-description').textContent = contentData.sections.contact.bakeryDescription;
+    
+    // Update bakery social links
+    const bakerySocialLinks = document.getElementById('bakery-social-links');
+    bakerySocialLinks.innerHTML = contentData.bakerySocialMedia.map(social => `
+        <a href="${social.url}" target="_blank" class="social-link ${social.name.toLowerCase()}">
+            <i class="${social.icon} social-icon"></i>
+            <span class="social-text">${social.name}</span>
+        </a>
+    `).join('');
+    
     // Update footer
     document.getElementById('footer-copyright').textContent = contentData.footer.copyright;
 }

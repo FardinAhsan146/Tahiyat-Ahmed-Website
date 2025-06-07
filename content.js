@@ -14,20 +14,21 @@ const contentData = {
       "title": "About Me",
       "personalLife": {
         "image": "photos/Capture.PNG",
-        "description": "In my personal life, I'm passionate about exploring new cultures through travel and cuisine. My love for baking and creating sweet treats brings joy to friends and family, while each journey to a new country adds another layer to my culinary inspiration."
+        "description": "Hey! Welcome to my website! I'm Tahiyat, I'm 23 years old and I grew up in Dhaka, Bangaladesh. Currently I live in Abu Dhabi, UAE. You might have caught me here on my website, but that won't be for too long. If you lose me, you might find me screaming my lungs out in the podium. Baking and decorating cakes for my baking side-hustle, stargazing at the beach, or the mountains or the countryside. If I am in the city you might catch me hovering around flower shops, or going for a late night drive around Saadiyat, or crafting up the perfect sauce at your nearest hotpoint joint, Or hunting for discounted drug store makeup. But chances are you might also sit next to me on a plane to a random country you've probably never heard of. Or you might just catch me at my bedroom with a LuLuLun face-mask on scrolling through cute reels of cows."
       },
       "professionalLife": {
         "image": "photos/professional.PNG",
-        "description": "Professionally, I combine my academic background with practical experience in technology and business. My journey has taken me through various roles where I've developed skills in project management, digital innovation, and cross-cultural communication."
+        "description": "Oh I am also majoring in Economics at New York Univeristy Abu Dhabi. Catch me at the class of 2026 graduation!"
       }
     },
     "places": {
       "title": "Places I have been",
-      "description": "Click on the markers to explore the places I've visited and read about my experiences."
+      "description": "I can write on and on about all the places I have been to, but its easier if you just folow me along (virtually for now). Click on the markers to explore the places I've visited and read about my experiences! "
     },
     "contact": {
       "title": "Contact",
-      "description": "Get in touch with me through social media."
+      "description": "Add me as a friend or follow me on insta to see where I am going next or drop by to say hi! (Or offer me a job)",
+      "bakeryDescription": "Or let me make you a cake for your next special occasion!"
     }
   },
   "locations": [
@@ -138,6 +139,18 @@ const contentData = {
       "name": "LinkedIn",
       "url": "https://www.linkedin.com/in/syeda-tahiyat-ahmed-b798a0327/",
       "icon": "fab fa-linkedin-in"
+    }
+  ],
+  "bakerySocialMedia": [
+    {
+      "name": "Facebook",
+      "url": "https://www.facebook.com/BBBakingBee",
+      "icon": "fab fa-facebook-f"
+    },
+    {
+      "name": "Instagram",
+      "url": "https://www.instagram.com/bakingbeebakery/",
+      "icon": "fab fa-instagram"
     }
   ],
   "footer": {

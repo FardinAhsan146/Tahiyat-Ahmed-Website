@@ -739,6 +739,51 @@ section p {
     letter-spacing: 0.3px;
 }
 
+/* Bakery Section */
+.bakery-section {
+    margin-top: 4rem;
+    padding-top: 3rem;
+    border-top: 2px solid rgba(244, 160, 156, 0.3);
+    text-align: center;
+}
+
+.bakery-section h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    color: var(--rose-gold);
+    margin-bottom: 1rem;
+    font-weight: 400;
+    letter-spacing: -0.5px;
+}
+
+.bakery-section p {
+    font-size: 1.1rem;
+    color: var(--warm-gray);
+    margin-bottom: 2rem;
+}
+
+.bakery-section .social-links {
+    margin-top: 2rem;
+}
+
+/* Add a subtle bakery icon or decoration */
+.bakery-section h3::before {
+    content: '🧁';
+    display: block;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
 /* Footer */
 footer {
     background: linear-gradient(135deg, #2d2d2d, #3d3d3d);
@@ -907,4 +952,27 @@ html {
 
 ::-webkit-scrollbar-thumb:hover {
     background: var(--deep-teal);
+}
+/* Winner Gamete Subtext */
+.winner-gamete-subtext {
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    color: var(--warm-gray);
+    font-style: normal;
+    letter-spacing: 1px;
+    opacity: 0.4;
+    margin-top: -1rem;
+    margin-bottom: 3rem;
+    font-weight: 300;
+    text-transform: lowercase;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .winner-gamete-subtext {
+        font-size: 0.7rem;
+        margin-top: -0.8rem;
+        margin-bottom: 2rem;
+    }
 }
