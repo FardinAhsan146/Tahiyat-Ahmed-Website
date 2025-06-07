@@ -22,13 +22,13 @@ const contentData = {
       }
     },
     "places": {
-      "title": "Places I have been",
-      "description": "I didn't travel abroad at all until I went to University. And then I visited 12 countries in 2 years. Getting to visit all these countries are a core life experience for me, and you should come along with me! Click on the markers to explore the places I've visited and read about my experiences! "
+      "title": "I can be your tour guide",
+      "description": "I didn't travel abroad at all until I went to University. And then I visited 12 countries in 2 years. Getting to visit all these countries are a core life experience for me, and you should come along with me! Click on the markers to explore the places I've visited and read about my experiences. "
     },
     "contact": {
       "title": "Contact",
-      "description": "Add me as a friend or follow me on insta to see where I am going next or drop by to say hi! (Or offer me a job)",
-      "bakeryDescription": "Or let me make you a cake for your next special occasion!"
+      "description": "Come say hi! (Or offer me a job)",
+      "bakeryDescription": "Do you want the best cake ever for your next special occasion?"
     }
   },
   "locations": [
@@ -37,7 +37,7 @@ const contentData = {
       "lat": 23.8103,
       "lng": 90.4125,
       "image": "country_photos/dhaka.jpg",
-      "story": "Where it all began. I grew up here and despite how many countries I visit, Dhaka will still be my home."
+      "story": "Where it all began. I grew up here and despite how many countries I visit, Dhaka will still be my heart and my home."
     },
     {
       "name": "Abu Dhabi, UAE",
@@ -58,7 +58,7 @@ const contentData = {
       "lat": 51.5072,
       "lng": -0.1276,
       "image": "country_photos/london.jpg",
-      "story": "My first study abroad experience at NYU London. My first view into \"The West\". I fell in love with the city."
+      "story": "My first study abroad experience at NYU London. My first view into \"The West\". I fell in love with the city. (I like it more than NYC)"
     },
     {
       "name": "New York City, USA",
@@ -86,21 +86,21 @@ const contentData = {
       "lat": 35.8989,
       "lng": 14.5146,
       "image": "country_photos/Malta.jpg",
-      "story": "Yes, Malta is a country and I visited it."
+      "story": "Yes, Malta is a country and I visited it. And you should too. Its beautiful and has great seafood."
     },
     {
       "name": "Tirana, Albania",
       "lat": 41.3275,
       "lng": 19.8187,
       "image": "country_photos/albania.PNG",
-      "story": "Albania's rich pastry traditions and warm hospitality showed me how food connects people across cultures."
+      "story": "One of the most underrated countries in Europe. The Blue Eye Springs is  one of the most beautiful places I've been."
     },
     {
       "name": "Podgorica, Montenegro",
       "lat": 42.4304,
       "lng": 19.2594,
       "image": "country_photos/montenegro.jpg",
-      "story": "Montenegro's stunning Adriatic coastline and mountain landscapes inspired desserts that capture both the sea and the peaks."
+      "story": "Montenegro is also a country and I visited it."
     },
     {
       "name": "Tbilisi, Georgia",
