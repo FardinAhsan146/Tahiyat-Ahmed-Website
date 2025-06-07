@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marker Comparison</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <style>
+        body { margin: 0; padding: 20px; font-family: Arial, sans-serif; }
+        .map-container { 
+            width: 100%; 
+            height: 400px; 
+            margin: 20px 0;
+            border: 2px solid #ccc;
+        }
+        h2 { margin-top: 30px; }
+        
+        /* Custom marker styles from main site */
+        .custom-marker {
+            background: #b76e79;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .custom-marker div {
+            width: 12px;
+            height: 12px;
+            background-color: white;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Marker Position Comparison</h1>
+    
+    <h2>Map 1: Standard Leaflet Markers</h2>
+    <div id="map1" class="map-container"></div>
+    
+    <h2>Map 2: Custom Div Icon Markers (Current Implementation)</h2>
+    <div id="map2" class="map-container"></div>
+    
+    <h2>Map 3: Custom Div Icon Markers (Fixed Implementation)</h2>
+    <div id="map3" class="map-container"></div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="content.js"></script>
+    <script>
+        // Test locations
+        const testLocations = [
+            { name: "New Delhi, India", lat: 28.6139, lng: 77.2090 },
+            { name: "London, UK", lat: 51.5072, lng: -0.1276 },
+            { name: "Tokyo, Japan", lat: 35.6762, lng: 139.6503 }
+        ];
+        
+        // Map 1: Standard markers
+        const map1 = L.map('map1').setView([20, 0], 2);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map1);
+        
+        testLocations.forEach(loc => {
+            L.marker([loc.lat, loc.lng])
+                .bindPopup(loc.name)
+                .addTo(map1);
+        });
+        
+        // Map 2: Current custom implementation
+        const map2 = L.map('map2').setView([20, 0], 2);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map2);
+        
+        const customIcon = L.divIcon({
+            className: 'custom-marker',
+            html: '<div style="width: 12px; height: 12px; background-color: white; border-radius: 50%;"></div>',
+            iconSize: [32, 32],
+            iconAnchor: [16, 16],
+            popupAnchor: [0, -16]
+        });
+        
+        testLocations.forEach(loc => {
+            L.marker([loc.lat, loc.lng], { icon: customIcon })
+                .bindPopup(loc.name)
+                .addTo(map2);
+        });
+        
+        // Map 3: Fixed implementation
+        const map3 = L.map('map3').setView([20, 0], 2);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map3);
+        
+        // Create custom icon with proper positioning
+        const fixedCustomIcon = L.divIcon({
+            className: 'custom-marker',
+            html: '<div></div>',
+            iconSize: [38, 38], // Account for border
+            iconAnchor: [19, 19], // Center of the icon
+            popupAnchor: [0, -19]
+        });
+        
+        testLocations.forEach(loc => {
+            L.marker([loc.lat, loc.lng], { icon: fixedCustomIcon })
+                .bindPopup(loc.name)
+                .addTo(map3);
+        });
+        
+        // Log coordinates for verification
+        console.log('Test locations:', testLocations);
+    </script>
+</body>
+</html>

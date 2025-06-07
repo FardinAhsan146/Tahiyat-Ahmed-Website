@@ -1,6 +1,6 @@
-# Tahiyat Ahmed - Personal Website
+# Syeda Tahiyat Ahmed - Personal Website
 
-A modern, responsive personal portfolio website for Tahiyat Ahmed.
+A modern, responsive personal portfolio website for Syeda Tahiyat Ahmed.
 
 ## Features
 
@@ -50,4 +50,4 @@ A modern, responsive personal portfolio website for Tahiyat Ahmed.
 
 ---
 
-© 2025 Tahiyat Ahmed. All rights reserved.
+© 2025 Syeda Tahiyat Ahmed. All rights reserved.

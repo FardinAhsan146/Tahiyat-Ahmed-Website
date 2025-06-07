@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <style>
+        #map { height: 600px; width: 100%; }
+        body { margin: 0; padding: 20px; }
+        .custom-marker {
+            background-color: #b76e79;
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+        .custom-marker div {
+            width: 12px;
+            height: 12px;
+            background-color: white;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Map Debug Test</h1>
+    <div id="map"></div>
+    <div id="debug-info"></div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="content.js"></script>
+    <script>
+        // Debug info
+        const debugDiv = document.getElementById('debug-info');
+        
+        // Check if contentData is loaded
+        if (typeof contentData !== 'undefined') {
+            debugDiv.innerHTML += '<p style="color: green;">✓ contentData loaded successfully</p>';
+            debugDiv.innerHTML += `<p>Number of locations: ${contentData.locations.length}</p>`;
+            
+            // Initialize map
+            const map = L.map('map').setView([25.2048, 55.2708], 2);
+            
+            // Add tile layer
+            L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+                attribution: '© OpenStreetMap contributors © CARTO',
+                subdomains: 'abcd',
+                maxZoom: 19
+            }).addTo(map);
+            
+            // Custom icon
+            const customIcon = L.divIcon({
+                className: 'custom-marker',
+                html: '<div></div>',
+                iconSize: [32, 32],
+                iconAnchor: [16, 16]
+            });
+            
+            // Add markers and log each one
+            let markerCount = 0;
+            contentData.locations.forEach((location, index) => {
+                try {
+                    const marker = L.marker([location.lat, location.lng], { icon: customIcon })
+                        .addTo(map);
+                    
+                    const popupContent = `
+                        <div style="text-align: center; padding: 10px;">
+                            <h3 style="margin: 0 0 10px 0;">${location.name}</h3>
+                            <p>Lat: ${location.lat}, Lng: ${location.lng}</p>
+                        </div>
+                    `;
+                    
+                    marker.bindPopup(popupContent);
+                    markerCount++;
+                    
+                    debugDiv.innerHTML += `<p style="color: green;">✓ Marker ${index + 1}: ${location.name} (${location.lat}, ${location.lng})</p>`;
+                } catch (error) {
+                    debugDiv.innerHTML += `<p style="color: red;">✗ Error adding marker ${index + 1}: ${error.message}</p>`;
+                }
+            });
+            
+            debugDiv.innerHTML += `<p><strong>Total markers added: ${markerCount}</strong></p>`;
+            
+        } else {
+            debugDiv.innerHTML += '<p style="color: red;">✗ contentData is not defined!</p>';
+        }
+        
+        // Check if Leaflet is loaded
+        if (typeof L !== 'undefined') {
+            debugDiv.innerHTML += '<p style="color: green;">✓ Leaflet library loaded</p>';
+        } else {
+            debugDiv.innerHTML += '<p style="color: red;">✗ Leaflet library not loaded!</p>';
+        }
+    </script>
+</body>
+</html>

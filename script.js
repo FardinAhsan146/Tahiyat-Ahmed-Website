@@ -2,13 +2,16 @@
 function loadContent() {
     if (contentData) {
         populateContent();
-        initializeWorldMap();
         setupNavigation();
+        // Delay map initialization to ensure DOM is ready
+        setTimeout(() => {
+            initializeWorldMap();
+        }, 100);
     } else {
         console.error('Content data not available');
         // Fallback content if data is not available
-        document.getElementById('page-title').textContent = 'Tahiyat Ahmed - Portfolio';
-        document.getElementById('site-name').textContent = 'Tahiyat Ahmed';
+        document.getElementById('page-title').textContent = 'Syeda Tahiyat Ahmed - Portfolio';
+        document.getElementById('site-name').textContent = 'Syeda Tahiyat Ahmed';
     }
 }
 
@@ -29,10 +32,18 @@ function populateContent() {
     
     // Update about section
     document.getElementById('about-title').textContent = contentData.sections.about.title;
-    document.getElementById('about-description').textContent = contentData.sections.about.description;
-    const aboutImage = document.getElementById('about-image');
-    aboutImage.src = contentData.sections.about.image;
-    aboutImage.alt = contentData.siteInfo.name;
+    
+    // Update personal life section
+    const personalImage = document.getElementById('personal-image');
+    personalImage.src = contentData.sections.about.personalLife.image;
+    personalImage.alt = "Personal Life - " + contentData.siteInfo.name;
+    document.getElementById('personal-description').textContent = contentData.sections.about.personalLife.description;
+    
+    // Update professional life section
+    const professionalImage = document.getElementById('professional-image');
+    professionalImage.src = contentData.sections.about.professionalLife.image;
+    professionalImage.alt = "Professional Life - " + contentData.siteInfo.name;
+    document.getElementById('professional-description').textContent = contentData.sections.about.professionalLife.description;
     
     // Update places section
     document.getElementById('places-title').textContent = contentData.sections.places.title;
@@ -126,38 +137,76 @@ function updateActiveNavigation() {
 }
 
 function initializeWorldMap() {
-    if (!contentData || !contentData.locations) return;
+    if (!contentData || !contentData.locations) {
+        console.error('No contentData or locations found');
+        return;
+    }
+    
+    // Ensure the map container exists and has dimensions
+    const mapContainer = document.getElementById('world-map');
+    if (!mapContainer) {
+        console.error('Map container not found');
+        return;
+    }
+    
+    // Force a reflow to ensure container has dimensions
+    mapContainer.style.display = 'block';
+    const containerHeight = mapContainer.offsetHeight;
+    const containerWidth = mapContainer.offsetWidth;
+    
+    console.log('Initializing map with', contentData.locations.length, 'locations');
+    console.log('Map container dimensions:', containerWidth + 'x' + containerHeight);
     
     // Initialize the map with a subtle, elegant style
     const map = L.map('world-map', {
-        zoomControl: false,
-        scrollWheelZoom: false
+        zoomControl: true,
+        scrollWheelZoom: true,
+        tap: true, // Enable tap for mobile
+        dragging: true,
+        touchZoom: true,
+        preferCanvas: true // Use canvas renderer for better performance
     }).setView([25.2048, 55.2708], 2);
     
-    // Add zoom control to bottom right
-    L.control.zoom({
-        position: 'bottomright'
-    }).addTo(map);
-    
-    // Add a more elegant tile layer
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+    // Add a more elegant tile layer with error handling
+    const tileLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
         subdomains: 'abcd',
-        maxZoom: 19
-    }).addTo(map);
+        maxZoom: 19,
+        crossOrigin: true
+    });
     
-    // Custom icon for markers
+    tileLayer.on('tileerror', function(error, tile) {
+        console.error('Tile loading error:', error);
+        // Try alternative tile source if main one fails
+        const altTileLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+            maxZoom: 19
+        }).addTo(map);
+    });
+    
+    tileLayer.on('load', function() {
+        console.log('Map tiles loaded successfully');
+    });
+    
+    tileLayer.addTo(map);
+    
+    // Custom icon for markers with better sizing
     const customIcon = L.divIcon({
         className: 'custom-marker',
-        html: '<div></div>',
-        iconSize: [32, 32],
-        iconAnchor: [16, 16]
+        html: '<div style="width: 12px; height: 12px; background-color: white; border-radius: 50%;"></div>',
+        iconSize: [38, 38], // Account for border
+        iconAnchor: [19, 19], // Center of the icon including border
+        popupAnchor: [0, -20]
     });
     
     // Add markers for each location
+    let markersAdded = 0;
     contentData.locations.forEach((location, index) => {
-        const marker = L.marker([location.lat, location.lng], { icon: customIcon })
-            .addTo(map);
+        try {
+            console.log(`Adding marker ${index + 1}:`, location.name, `(${location.lat}, ${location.lng})`);
+            const marker = L.marker([location.lat, location.lng], { icon: customIcon })
+                .addTo(map);
+            markersAdded++;
         
         // Create elegant popup content
         const popupContent = `
@@ -173,11 +222,16 @@ function initializeWorldMap() {
             className: 'custom-popup'
         });
         
-        // Add hover effect
-        marker.on('mouseover', function() {
+        // Change from hover to click
+        marker.on('click', function() {
             this.openPopup();
         });
+        } catch (error) {
+            console.error(`Error adding marker for ${location.name}:`, error);
+        }
     });
+    
+    console.log(`Successfully added ${markersAdded} markers out of ${contentData.locations.length}`);
     
     // Add subtle animation to map on load
     setTimeout(() => {
@@ -185,7 +239,23 @@ function initializeWorldMap() {
             duration: 2,
             easeLinearity: 0.5
         });
-    }, 1000);
+    }, 1500);
+    
+    // Force map to refresh tiles and ensure proper rendering
+    setTimeout(() => {
+        map.invalidateSize();
+        console.log('Map refreshed and resized');
+    }, 250);
+    
+    // Additional check to ensure markers are visible
+    setTimeout(() => {
+        map.eachLayer(function(layer) {
+            if (layer instanceof L.Marker) {
+                layer.update();
+            }
+        });
+        console.log('Markers updated');
+    }, 500);
 }
 
 // Initialize everything when page loads
@@ -193,6 +263,18 @@ document.addEventListener('DOMContentLoaded', function() {
     loadContent();
     initializeAnimations();
     addSubtleEffects();
+    createFloatingHearts();
+    
+    // Ensure map initializes after all content is loaded
+    if (window.L && contentData) {
+        setTimeout(() => {
+            const mapElement = document.getElementById('world-map');
+            if (mapElement && !mapElement._leaflet_id) {
+                console.log('Re-initializing map after DOM ready');
+                initializeWorldMap();
+            }
+        }, 500);
+    }
 });
 
 // Animation functions
@@ -276,51 +358,29 @@ function addSubtleEffects() {
                         span.style.transform = 'translateY(0)';
                     });
                 }
+                
+                // Create floating hearts
             });
         });
         
         observer.observe(heading);
     });
+}
+
+// Create floating hearts
+function createFloatingHearts() {
+    const heartsContainer = document.createElement('div');
+    heartsContainer.className = 'floating-hearts';
     
-    // Add custom cursor effect
-    const cursor = document.createElement('div');
-    cursor.className = 'custom-cursor';
-    cursor.style.cssText = `
-        width: 20px;
-        height: 20px;
-        border: 2px solid #b76e79;
-        border-radius: 50%;
-        position: fixed;
-        pointer-events: none;
-        z-index: 9999;
-        transition: all 0.1s ease;
-        opacity: 0;
-    `;
-    document.body.appendChild(cursor);
+    // Create 6 hearts
+    for (let i = 0; i < 6; i++) {
+        const heart = document.createElement('div');
+        heart.className = 'heart';
+        heart.innerHTML = '♥';
+        heartsContainer.appendChild(heart);
+    }
     
-    document.addEventListener('mousemove', (e) => {
-        cursor.style.left = e.clientX - 10 + 'px';
-        cursor.style.top = e.clientY - 10 + 'px';
-        cursor.style.opacity = '0.5';
-    });
-    
-    document.addEventListener('mouseout', () => {
-        cursor.style.opacity = '0';
-    });
-    
-    // Add hover effect to interactive elements
-    const interactiveElements = document.querySelectorAll('a, button');
-    interactiveElements.forEach(el => {
-        el.addEventListener('mouseenter', () => {
-            cursor.style.transform = 'scale(1.5)';
-            cursor.style.borderColor = '#2c5f5d';
-        });
-        
-        el.addEventListener('mouseleave', () => {
-            cursor.style.transform = 'scale(1)';
-            cursor.style.borderColor = '#b76e79';
-        });
-    });
+    document.body.appendChild(heartsContainer);
 }
 
 // Add smooth page transitions

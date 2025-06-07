@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Coordinates</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <style>
+        #map { height: 600px; width: 100%; }
+        body { margin: 0; padding: 20px; font-family: Arial, sans-serif; }
+        .info { margin: 20px 0; }
+        .location { margin: 5px 0; padding: 5px; background: #f0f0f0; }
+    </style>
+</head>
+<body>
+    <h1>Coordinate Test</h1>
+    <div id="map"></div>
+    <div class="info">
+        <h2>Location Coordinates:</h2>
+        <div id="locations"></div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="content.js"></script>
+    <script>
+        // Initialize map
+        const map = L.map('map').setView([20, 0], 2);
+        
+        // Add tile layer
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors',
+            maxZoom: 19
+        }).addTo(map);
+        
+        // Display location info
+        const locationsDiv = document.getElementById('locations');
+        
+        // Add markers with labels
+        contentData.locations.forEach((location, index) => {
+            // Create marker
+            const marker = L.marker([location.lat, location.lng]).addTo(map);
+            
+            // Bind popup with location info
+            marker.bindPopup(`
+                <strong>${location.name}</strong><br>
+                Lat: ${location.lat}<br>
+                Lng: ${location.lng}<br>
+                Index: ${index + 1}
+            `);
+            
+            // Display in info section
+            locationsDiv.innerHTML += `
+                <div class="location">
+                    <strong>${index + 1}. ${location.name}</strong><br>
+                    Latitude: ${location.lat}, Longitude: ${location.lng}
+                </div>
+            `;
+        });
+        
+        // Test specific coordinates
+        console.log('Testing New Delhi coordinates:');
+        console.log('Expected: 28.6139°N, 77.2090°E');
+        
+        // Add a red marker for New Delhi to highlight it
+        const newDelhiMarker = L.marker([28.6139, 77.2090], {
+            icon: L.icon({
+                iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+                shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+                iconSize: [25, 41],
+                iconAnchor: [12, 41],
+                popupAnchor: [1, -34],
+                shadowSize: [41, 41]
+            })
+        }).addTo(map);
+        
+        newDelhiMarker.bindPopup('<strong>New Delhi Test Marker</strong><br>This should be in India').openPopup();
+    </script>
+</body>
+</html>

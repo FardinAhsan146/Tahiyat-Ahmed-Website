@@ -1,8 +1,8 @@
 // Content data for the website
 const contentData = {
   "siteInfo": {
-    "name": "Tahiyat Ahmed",
-    "title": "Tahiyat Ahmed - Portfolio"
+    "name": "Syeda Tahiyat Ahmed",
+    "title": "Syeda Tahiyat Ahmed - Portfolio"
   },
   "navigation": {
     "about": "About",
@@ -12,8 +12,14 @@ const contentData = {
   "sections": {
     "about": {
       "title": "About Me",
-      "description": "This section will contain information about Tahiyat Ahmed.",
-      "image": "photos/Capture.PNG"
+      "personalLife": {
+        "image": "photos/Capture.PNG",
+        "description": "In my personal life, I'm passionate about exploring new cultures through travel and cuisine. My love for baking and creating sweet treats brings joy to friends and family, while each journey to a new country adds another layer to my culinary inspiration."
+      },
+      "professionalLife": {
+        "image": "photos/professional.PNG",
+        "description": "Professionally, I combine my academic background with practical experience in technology and business. My journey has taken me through various roles where I've developed skills in project management, digital innovation, and cross-cultural communication."
+      }
     },
     "places": {
       "title": "Places I have been",
@@ -26,25 +32,95 @@ const contentData = {
   },
   "locations": [
     {
-      "name": "Dubai, UAE",
-      "lat": 25.2048,
-      "lng": 55.2708,
-      "image": "photos/Capture.PNG",
-      "story": "This is where I currently live and work. Dubai is an amazing city with incredible architecture and a vibrant multicultural atmosphere."
+      "name": "Dhaka, Bangladesh",
+      "lat": 23.8103,
+      "lng": 90.4125,
+      "image": "country_photos/dhaka.jpg",
+      "story": "Where it all began. The warmth of home and the flavors of my childhood continue to inspire every creation."
     },
     {
-      "name": "New York, USA",
-      "lat": 40.7128,
-      "lng": -74.0060,
-      "image": "photos/Capture.PNG",
-      "story": "The city that never sleeps! I visited New York and was amazed by the energy, the skyscrapers, and the diversity of people and cultures."
+      "name": "Abu Dhabi, UAE",
+      "lat": 24.4539,
+      "lng": 54.3773,
+      "image": "country_photos/uae.jpg",
+      "story": "My current home, where desert meets innovation. Here I blend traditional Middle Eastern sweets with modern techniques."
+    },
+    {
+      "name": "Doha, Qatar",
+      "lat": 25.2854,
+      "lng": 51.5310,
+      "image": "country_photos/qatar.jpg",
+      "story": "Qatar's blend of tradition and modernity fascinated me. From the souqs to the skyline, this pearl of the Gulf showed me how heritage and progress can dance together."
     },
     {
       "name": "London, UK",
-      "lat": 51.5074,
-      "lng": -0.1278,
-      "image": "photos/Capture.PNG",
+      "lat": 51.5072,
+      "lng": -0.1276,
+      "image": "country_photos/london.jpg",
       "story": "London's rich history and beautiful architecture left a lasting impression on me. From Big Ben to the Thames, every corner tells a story."
+    },
+    {
+      "name": "New York City, USA",
+      "lat": 40.7128,
+      "lng": -74.0060,
+      "image": "country_photos/america.jpg",
+      "story": "The city that never sleeps taught me that dreams have no limits. Every street corner offers a new flavor to discover."
+    },
+    {
+      "name": "Edinburgh, Scotland",
+      "lat": 55.9533,
+      "lng": -3.1883,
+      "image": "country_photos/scotland.jpg",
+      "story": "The Scottish Highlands offered breathtaking landscapes and traditional shortbread recipes that inspired new flavors in my baking."
+    },
+    {
+      "name": "Cardiff, Wales",
+      "lat": 51.4816,
+      "lng": -3.1791,
+      "image": "country_photos/wales.jpg",
+      "story": "Wales introduced me to Welsh cakes and bara brith, expanding my understanding of British baking traditions."
+    },
+    {
+      "name": "Valletta, Malta",
+      "lat": 35.8989,
+      "lng": 14.5146,
+      "image": "country_photos/Malta.jpg",
+      "story": "This Mediterranean gem taught me about pastizzi and traditional Maltese sweets, adding a sunny twist to my collection."
+    },
+    {
+      "name": "Tirana, Albania",
+      "lat": 41.3275,
+      "lng": 19.8187,
+      "image": "country_photos/albania.PNG",
+      "story": "Albania's rich pastry traditions and warm hospitality showed me how food connects people across cultures."
+    },
+    {
+      "name": "Podgorica, Montenegro",
+      "lat": 42.4304,
+      "lng": 19.2594,
+      "image": "country_photos/montenegro.jpg",
+      "story": "Montenegro's stunning Adriatic coastline and mountain landscapes inspired desserts that capture both the sea and the peaks."
+    },
+    {
+      "name": "Tbilisi, Georgia",
+      "lat": 41.7151,
+      "lng": 44.8271,
+      "image": "country_photos/georgia.jpg",
+      "story": "Georgian cuisine's unique flavors and traditional bread-making techniques added depth to my culinary journey."
+    },
+    {
+      "name": "New Delhi, India",
+      "lat": 28.6139,
+      "lng": 77.2090,
+      "image": "country_photos/india.jpg",
+      "story": "India's capital showcased the rich heritage of traditional sweets and spices that continue to inspire fusion desserts bridging Eastern and Western flavors."
+    },
+    {
+      "name": "Tokyo, Japan",
+      "lat": 35.6762,
+      "lng": 139.6503,
+      "image": "country_photos/japan.PNG",
+      "story": "Japanese precision and attention to detail transformed my approach to pastry decoration and presentation."
     }
   ],
   "socialMedia": [
@@ -65,6 +141,6 @@ const contentData = {
     }
   ],
   "footer": {
-    "copyright": "© 2025 Tahiyat Ahmed. All rights reserved."
+    "copyright": "© 2025 Syeda Tahiyat Ahmed. All rights reserved."
   }
 };
