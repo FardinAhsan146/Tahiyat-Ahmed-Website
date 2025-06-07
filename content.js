@@ -86,14 +86,14 @@ const contentData = {
       "lat": 35.8989,
       "lng": 14.5146,
       "image": "country_photos/Malta.jpg",
-      "story": "Yes, Malta is a country and I visited it. And you should too. Its beautiful and has great seafood."
+      "story": "Yes, Malta is a country and I visited it. And you should too if you want a low-key meddeterranean vacation with great seafood."
     },
     {
       "name": "Tirana, Albania",
       "lat": 41.3275,
       "lng": 19.8187,
       "image": "country_photos/albania.PNG",
-      "story": "One of the most underrated countries in Europe. The Blue Eye Springs is  one of the most beautiful places I've been."
+      "story": "One of the most underrated countries in Europe. The Blue Eye Springs is one of the most beautiful places I've been."
     },
     {
       "name": "Podgorica, Montenegro",
@@ -121,7 +121,7 @@ const contentData = {
       "lat": 35.6762,
       "lng": 139.6503,
       "image": "country_photos/japan.PNG",
-      "story": "My time in Japan was surreal. I spent two weeks here on a summer teaching program and it was one of the most transforamtive experiences of my life as I taught kids about Climate Change, lived with them 24/7 and helped them through their highs and lows."
+      "story": "My time in Japan was surreal. I spent two weeks for a summer teaching program and it was one of the most transforamtive experiences of my life as I taught kids about Climate Change, lived with them 24/7 and helped them through their highs and lows. Nowhere else did I develop such a close bond with so many people in such a short amount of time."
     },
     {
       "name": "Antarctica",
