@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>HTML Loop Test</title>
+</head>
+<body>
+  <h1>HTML Loop Test</h1>
+  
+  <ul id="country-list">
+  </ul>
+
+  <script>
+    const countries = ['USA', 'Canada', 'Mexico', 'Brazil', 'Argentina', 'Chile'];
+
+    const countryList = document.getElementById('country-list');
+
+    for (let i = 0; i < countries.length; i++) {
+      const countryItem = document.createElement('li');
+      countryItem.textContent = countries[i];
+      countryList.appendChild(countryItem);
+    }
+  </script>
+
+  <hr>
+
+  <p>Random Paragraphs:</p>
+
+  <script>
+    const paragraphCount = 500;
+    const paragraphContainer = document.createElement('div');
+
+    for (let i = 0; i < paragraphCount; i++) {
+      const paragraph = document.createElement('p');
+      paragraph.textContent = `This is random paragraph ${i + 1}.`;
+      paragraphContainer.appendChild(paragraph);
+    }
+
+    document.body.appendChild(paragraphContainer);
+  </script>
+</body>
+</html>

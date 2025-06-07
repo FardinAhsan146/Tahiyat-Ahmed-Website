@@ -18,7 +18,7 @@ const contentData = {
       },
       "professionalLife": {
         "image": "photos/professional.PNG",
-        "description": "Oh I am also majoring in Economics at New York Univeristy Abu Dhabi. Catch me at the class of 2026 graduation!"
+        "description": "Oh I am also majoring in Economics at New York University Abu Dhabi. Catch me at the class of 2026 graduation!"
       }
     },
     "places": {
@@ -27,8 +27,8 @@ const contentData = {
     },
     "contact": {
       "title": "Contact",
-      "description": "Come say hi! (Or offer me a job)",
-      "bakeryDescription": "Do you want the best cake ever for your next special occasion?"
+      "description": "Say hi (or offer me a job)",
+      "bakeryDescription": "Do you want to order a cake?"
     }
   },
   "locations": [
@@ -44,49 +44,49 @@ const contentData = {
       "lat": 24.4539,
       "lng": 54.3773,
       "image": "country_photos/uae.jpg",
-      "story": "My first step outside of Bangladesh. My home for now at NYUAD."
+      "story": "My first step outside of Dhaka. My home for now at NYUAD."
     },
     {
       "name": "Doha, Qatar",
       "lat": 25.2854,
       "lng": 51.5310,
       "image": "country_photos/qatar.jpg",
-      "story": "I came here for a Debate at Georgetown University Doha!"
+      "story": "I came here for a Debate at Georgetown Qatar."
     },
     {
       "name": "London, UK",
       "lat": 51.5072,
       "lng": -0.1276,
       "image": "country_photos/london.jpg",
-      "story": "My first study abroad experience at NYU London. My first view into \"The West\". I fell in love with the city. (I like it more than NYC)"
+      "story": "I had my first study abroad experience at NYU London. My first view into \"The West\". I fell in love with the historic architecture, and posh London vibes. (I like it more than NYC)"
     },
     {
       "name": "New York City, USA",
       "lat": 40.7128,
       "lng": -74.0060,
       "image": "country_photos/america.jpg",
-      "story": "The concrete jungle where dreams are made of. I've dreamt of doing a study-abroad at NYU and living that NYC girly life since my first day at NYAUD. I'm happy to say that dream is now a reality."
+      "story": "I've dreamt of doing a study-abroad at NYU and living that NYC girly life since my first day at NYAUD. That life was everything I imagined and more, I can't wait to go back."
     },
     {
       "name": "Edinburgh, Scotland",
       "lat": 55.9533,
       "lng": -3.1883,
       "image": "country_photos/scotland.jpg",
-      "story": "I visited Edinburgh during my time in London. It's beatufiul. Gloomy, but beatuiful."
+      "story": "It's beautiful. Dark and gloomy, but beautiful."
     },
     {
       "name": "Cardiff, Wales",
       "lat": 51.4816,
       "lng": -3.1791,
       "image": "country_photos/wales.jpg",
-      "story": "Studying abroad in Londom meant I can just take a weekend trip to Wales. Oh and I wore a Saree in the streets of Cardiff!"
+      "story": "Studying abroad in Londom meant I can just take a weekend trip to Wales. Oh and I wore a saree in the streets of Cardiff!"
     },
     {
       "name": "Valletta, Malta",
       "lat": 35.8989,
       "lng": 14.5146,
       "image": "country_photos/Malta.jpg",
-      "story": "Yes, Malta is a country and I visited it. And you should too if you want a low-key meddeterranean vacation with great seafood."
+      "story": "Yes, Malta is a country and I visited it. And you should too if you want a low-key meddetirranean vacation with great seafood."
     },
     {
       "name": "Tirana, Albania",
@@ -100,14 +100,14 @@ const contentData = {
       "lat": 42.4304,
       "lng": 19.2594,
       "image": "country_photos/montenegro.jpg",
-      "story": "Montenegro is also a country and I visited it."
+      "story": "Montenegro is also a country and I visited it. Can you believe it? I visited Montenegro!"
     },
     {
       "name": "Tbilisi, Georgia",
       "lat": 41.7151,
       "lng": 44.8271,
       "image": "country_photos/georgia.jpg",
-      "story": "My first international trip with my friends! I might go back soon! 🌚"
+      "story": "My first international trip with friends! I might go back soon! 🌚"
     },
     {
       "name": "New Delhi, India",
@@ -121,7 +121,7 @@ const contentData = {
       "lat": 35.6762,
       "lng": 139.6503,
       "image": "country_photos/japan.PNG",
-      "story": "My time in Japan was surreal. I spent two weeks for a summer teaching program and it was one of the most transforamtive experiences of my life as I taught kids about Climate Change, lived with them 24/7 and helped them through their highs and lows. Nowhere else did I develop such a close bond with so many people in such a short amount of time."
+      "story": "My time in Japan was surreal. I spent two weeks at a summer teaching program and it was one of the most transforamtive experiences of my life as I taught kids about Climate Change, lived with them 24/7 and helped them through their highs and lows. Nowhere else did I develop such a close bond with so many people in such a short amount of time."
     },
     {
       "name": "Antarctica",
