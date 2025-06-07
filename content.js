@@ -14,7 +14,7 @@ const contentData = {
       "title": "About Me",
       "personalLife": {
         "image": "photos/Capture.PNG",
-        "description": "Hey! Welcome to my website! I'm Tahiyat, I'm 23 years old and I grew up in Dhaka, Bangaladesh. Currently I live in Abu Dhabi, UAE. You might have caught me here on my website, but that won't be for too long. If you lose me, you might find me screaming my lungs out in the podium. Baking and decorating cakes for my baking side-hustle, stargazing at the beach, or the mountains or the countryside. If I am in the city you might catch me hovering around flower shops, or going for a late night drive around Saadiyat, or crafting up the perfect sauce at your nearest hotpoint joint, Or hunting for discounted drug store makeup. But chances are you might also sit next to me on a plane to a random country you've probably never heard of. Or you might just catch me at my bedroom with a LuLuLun face-mask on scrolling through cute reels of cows."
+        "description": "Hey! Welcome to my website! I'm Tahiyat, I'm 23 years old and I grew up in Dhaka, Bangaladesh. Currently I live in Abu Dhabi, UAE. You might have caught me here on my website, but that won't be for too long. If you lose me, you might find me screaming my lungs out in the podium, baking and decorating cakes for my baking side-hustle, stargazing at the beach, or the mountains or the countryside. If I am in the city you might catch me hovering around flower shops, or going for a late night drive around Saadiyat, or crafting up the perfect dipping sauce at your nearest hot-pot joint, Or hunting for discounted drug store makeup. But chances are you might also sit next to me on a plane to a random country you've probably never heard of. Or you might just catch me at my bedroom with a LuLuLun face-mask on scrolling through cute reels of cows."
       },
       "professionalLife": {
         "image": "photos/professional.PNG",
@@ -65,28 +65,28 @@ const contentData = {
       "lat": 40.7128,
       "lng": -74.0060,
       "image": "country_photos/america.jpg",
-      "story": ""
+      "story": "The concrete jungle where dreams are made of. I've dreamt of doing a study-abroad at NYU and living that NYC girly life since my first day at NYAUD."
     },
     {
       "name": "Edinburgh, Scotland",
       "lat": 55.9533,
       "lng": -3.1883,
       "image": "country_photos/scotland.jpg",
-      "story": "The Scottish Highlands offered breathtaking landscapes and traditional shortbread recipes that inspired new flavors in my baking."
+      "story": "I visited Edinburgh during my time in London. It's beatufiul. Gloomy, but beatuiful."
     },
     {
       "name": "Cardiff, Wales",
       "lat": 51.4816,
       "lng": -3.1791,
       "image": "country_photos/wales.jpg",
-      "story": "Wales introduced me to Welsh cakes and bara brith, expanding my understanding of British baking traditions."
+      "story": "Studying abroad in Londom means I can just take a weekend trip to Wales. And wear a Saree in the streets of Cardiff!"
     },
     {
       "name": "Valletta, Malta",
       "lat": 35.8989,
       "lng": 14.5146,
       "image": "country_photos/Malta.jpg",
-      "story": "This Mediterranean gem taught me about pastizzi and traditional Maltese sweets, adding a sunny twist to my collection."
+      "story": "Yes, Malta is a country and I visited it. "
     },
     {
       "name": "Tirana, Albania",
@@ -107,21 +107,28 @@ const contentData = {
       "lat": 41.7151,
       "lng": 44.8271,
       "image": "country_photos/georgia.jpg",
-      "story": "Georgian cuisine's unique flavors and traditional bread-making techniques added depth to my culinary journey."
+      "story": "My first international trip with my friends!"
     },
     {
       "name": "New Delhi, India",
       "lat": 28.6139,
       "lng": 77.2090,
       "image": "country_photos/india.jpg",
-      "story": "India's capital showcased the rich heritage of traditional sweets and spices that continue to inspire fusion desserts bridging Eastern and Western flavors."
+      "story": "I came here for a Debate! I visited IIT Delhi and the legendary Leopold Cafe in Mumbai"
     },
     {
       "name": "Tokyo, Japan",
       "lat": 35.6762,
       "lng": 139.6503,
       "image": "country_photos/japan.PNG",
-      "story": "Japanese precision and attention to detail transformed my approach to pastry decoration and presentation."
+      "story": "My time in Japan was surreal. I spent two weeks here on a summer teaching program and it was one of the most transforamtive experiences of my life as I taught kids about Climate Change, lived with them 24/7 and helped them through their highs and lows."
+    },
+    {
+      "name": "Antarctica",
+      "lat": -82.8628,
+      "lng": 135.0000,
+      "image": "country_photos/antarctica.jpg",
+      "story": "MY ULTIMATE DREAM DESTINATION"
     }
   ],
   "socialMedia": [

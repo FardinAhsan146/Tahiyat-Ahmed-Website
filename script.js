@@ -217,7 +217,8 @@ function initializeWorldMap() {
         'Montenegro': 'me',
         'Georgia': 'ge',
         'India': 'in',
-        'Japan': 'jp'
+        'Japan': 'jp',
+        'Antarctica': 'aq'     // Antarctica flag
     };
     
     // Function to get flag SVG path from location name
