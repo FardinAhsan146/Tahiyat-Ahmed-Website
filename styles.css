@@ -497,59 +497,71 @@ section {
     border-radius: 8px;
 }
 
-/* Custom marker styles - inspired by flowers */
-.leaflet-marker-icon.custom-marker {
-    background: var(--rose-gold) !important;
-    width: 32px !important;
-    height: 32px !important;
-    border-radius: 50% !important;
-    border: 3px solid white !important;
-    box-shadow: var(--shadow-soft) !important;
+/* Flag marker styles using divIcon */
+.leaflet-marker-icon.flag-marker {
+    background: transparent !important;
+    border: none !important;
+    cursor: pointer !important;
+    z-index: 1000 !important;
+}
+
+.flag-marker .flag-container {
+    width: 48px;
+    height: 36px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 2px solid white;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.flag-marker:hover .flag-container {
+    transform: scale(1.1) translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    border-color: var(--rose-gold);
+    border-width: 3px;
+}
+
+/* Add wave animation on hover */
+@keyframes flag-wave {
+    0%, 100% {
+        transform: scale(1.1) translateY(-2px) rotate(0deg);
+    }
+    25% {
+        transform: scale(1.1) translateY(-2px) rotate(-2deg);
+    }
+    75% {
+        transform: scale(1.1) translateY(-2px) rotate(2deg);
+    }
+}
+
+.flag-marker:hover .flag-container {
+    animation: flag-wave 1s ease-in-out infinite;
+}
+
+/* Fallback pin marker styles */
+.leaflet-marker-icon.pin-marker {
+    background: transparent !important;
+    border: none !important;
     cursor: pointer !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    color: white !important;
-    font-weight: 600 !important;
     transition: all 0.3s ease !important;
-    font-size: 14px !important;
-    /* Remove position: relative as it interferes with Leaflet's positioning */
     z-index: 1000 !important;
 }
 
-.leaflet-marker-icon.custom-marker::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    background: var(--rose-gold);
-    opacity: 0.3;
-    animation: pulse-subtle 2s ease-in-out infinite;
-    z-index: -1;
-    top: 0;
-    left: 0;
+.pin-marker .pin-icon {
+    font-size: 24px;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+    transition: all 0.3s ease;
 }
 
-@keyframes pulse-subtle {
-    0% {
-        transform: scale(1);
-        opacity: 0.3;
-    }
-    50% {
-        transform: scale(1.3);
-        opacity: 0.1;
-    }
-    100% {
-        transform: scale(1);
-        opacity: 0.3;
-    }
-}
-
-.leaflet-marker-icon.custom-marker:hover {
-    transform: scale(1.1);
-    background: var(--deep-teal) !important;
-    box-shadow: var(--shadow-hover) !important;
+.leaflet-marker-icon.pin-marker:hover .pin-icon {
+    transform: scale(1.2) translateY(-3px);
+    filter: drop-shadow(3px 3px 6px rgba(0, 0, 0, 0.4));
 }
 /* Leaflet control adjustments for mobile */
 .leaflet-control-zoom {

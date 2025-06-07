@@ -203,42 +203,97 @@ function initializeWorldMap() {
     
     tileLayer.addTo(map);
     
-    // Custom icon for markers with better sizing
-    const customIcon = L.divIcon({
-        className: 'custom-marker',
-        html: '<div style="width: 12px; height: 12px; background-color: white; border-radius: 50%;"></div>',
-        iconSize: [38, 38], // Account for border
-        iconAnchor: [19, 19], // Center of the icon including border
-        popupAnchor: [0, -20]
-    });
+    // Country code mapping for flag images
+    const countryCodesMap = {
+        'Bangladesh': 'bd',
+        'UAE': 'ae',
+        'Qatar': 'qa',
+        'UK': 'gb',
+        'USA': 'us',
+        'Scotland': 'gb-sct',  // Scotland flag
+        'Wales': 'gb-wls',     // Wales flag
+        'Malta': 'mt',
+        'Albania': 'al',
+        'Montenegro': 'me',
+        'Georgia': 'ge',
+        'India': 'in',
+        'Japan': 'jp'
+    };
+    
+    // Function to get flag SVG path from location name
+    const getFlagSvgPath = (locationName) => {
+        // Extract country name from location string
+        const countryMatch = locationName.match(/,\s*(.+)$/);
+        const country = countryMatch ? countryMatch[1].trim() : locationName;
+        
+        // Get country code
+        const countryCode = countryCodesMap[country];
+        
+        if (countryCode) {
+            // Use local SVG files
+            return `country-icons/flag-icons-main/flag-icons-main/flags/4x3/${countryCode}.svg`;
+        }
+        
+        // Return null if no flag found
+        return null;
+    };
     
     // Add markers for each location
     let markersAdded = 0;
     contentData.locations.forEach((location, index) => {
         try {
             console.log(`Adding marker ${index + 1}:`, location.name, `(${location.lat}, ${location.lng})`);
-            const marker = L.marker([location.lat, location.lng], { icon: customIcon })
-                .addTo(map);
-            markersAdded++;
-        
-        // Create elegant popup content
-        const popupContent = `
-            <div style="text-align: center; padding: 10px; min-width: 200px;">
-                <h3 style="margin: 0 0 10px 0; color: #b76e79; font-family: 'Playfair Display', serif;">${location.name}</h3>
-                <img src="${location.image}" style="width: 100%; max-width: 200px; border-radius: 8px; margin-bottom: 10px;">
-                <p style="margin: 0; color: #6b6b6b; font-size: 14px; line-height: 1.5;">${location.story}</p>
-            </div>
-        `;
-        
-        marker.bindPopup(popupContent, {
-            maxWidth: 300,
-            className: 'custom-popup'
-        });
-        
-        // Change from hover to click
-        marker.on('click', function() {
-            this.openPopup();
-        });
+            
+            // Get flag SVG path for this location
+            const flagPath = getFlagSvgPath(location.name);
+            let marker;
+            
+            if (flagPath) {
+                // Create custom div icon with flag as background
+                const flagIcon = L.divIcon({
+                    className: 'flag-marker',
+                    html: `<div class="flag-container" style="background-image: url('${flagPath}');"></div>`,
+                    iconSize: [48, 36],
+                    iconAnchor: [24, 18],
+                    popupAnchor: [0, -20]
+                });
+                
+                marker = L.marker([location.lat, location.lng], { icon: flagIcon })
+                    .addTo(map);
+                markersAdded++;
+            } else {
+                // Fallback to a nice pin icon if flag not available
+                const pinIcon = L.divIcon({
+                    className: 'pin-marker',
+                    html: '<div class="pin-icon">📍</div>',
+                    iconSize: [30, 30],
+                    iconAnchor: [15, 30],
+                    popupAnchor: [0, -30]
+                });
+                
+                marker = L.marker([location.lat, location.lng], { icon: pinIcon })
+                    .addTo(map);
+                markersAdded++;
+            }
+            
+            // Create elegant popup content
+            const popupContent = `
+                <div style="text-align: center; padding: 10px; min-width: 200px;">
+                    <h3 style="margin: 0 0 10px 0; color: #b76e79; font-family: 'Playfair Display', serif;">${location.name}</h3>
+                    <img src="${location.image}" style="width: 100%; max-width: 200px; border-radius: 8px; margin-bottom: 10px;">
+                    <p style="margin: 0; color: #6b6b6b; font-size: 14px; line-height: 1.5;">${location.story}</p>
+                </div>
+            `;
+            
+            marker.bindPopup(popupContent, {
+                maxWidth: 300,
+                className: 'custom-popup'
+            });
+            
+            // Change from hover to click
+            marker.on('click', function() {
+                this.openPopup();
+            });
         } catch (error) {
             console.error(`Error adding marker for ${location.name}:`, error);
         }

@@ -23,7 +23,7 @@ const contentData = {
     },
     "places": {
       "title": "Places I have been",
-      "description": "I can write on and on about all the places I have been to, but its easier if you just folow me along (virtually for now). Click on the markers to explore the places I've visited and read about my experiences! "
+      "description": "I didn't travel abraod at all until I went to University. And then Click on the markers to explore the places I've visited and read about my experiences! "
     },
     "contact": {
       "title": "Contact",
@@ -37,35 +37,35 @@ const contentData = {
       "lat": 23.8103,
       "lng": 90.4125,
       "image": "country_photos/dhaka.jpg",
-      "story": "Where it all began. The warmth of home and the flavors of my childhood continue to inspire every creation."
+      "story": "Where it all began. I grew up here and despite how many countries I visit, Dhaka will still be my home."
     },
     {
       "name": "Abu Dhabi, UAE",
       "lat": 24.4539,
       "lng": 54.3773,
       "image": "country_photos/uae.jpg",
-      "story": "My current home, where desert meets innovation. Here I blend traditional Middle Eastern sweets with modern techniques."
+      "story": "My first step outside of Bangladesh. My home for now at NYUAD."
     },
     {
       "name": "Doha, Qatar",
       "lat": 25.2854,
       "lng": 51.5310,
       "image": "country_photos/qatar.jpg",
-      "story": "Qatar's blend of tradition and modernity fascinated me. From the souqs to the skyline, this pearl of the Gulf showed me how heritage and progress can dance together."
+      "story": "I came here for a Debate at Georgetown University Doha!"
     },
     {
       "name": "London, UK",
       "lat": 51.5072,
       "lng": -0.1276,
       "image": "country_photos/london.jpg",
-      "story": "London's rich history and beautiful architecture left a lasting impression on me. From Big Ben to the Thames, every corner tells a story."
+      "story": "My first study abroad experience at NYU London. My first view into \"The West\". I fell in love with the city."
     },
     {
       "name": "New York City, USA",
       "lat": 40.7128,
       "lng": -74.0060,
       "image": "country_photos/america.jpg",
-      "story": "The city that never sleeps taught me that dreams have no limits. Every street corner offers a new flavor to discover."
+      "story": ""
     },
     {
       "name": "Edinburgh, Scotland",
