@@ -2,7 +2,7 @@
 function loadContent() {
     if (contentData) {
         populateContent();
-        setupNavigation();
+        setupScrollEffect();
         // Delay map initialization to ensure DOM is ready
         setTimeout(() => {
             initializeWorldMap();
@@ -22,14 +22,6 @@ function populateContent() {
     document.getElementById('page-title').textContent = contentData.siteInfo.title;
     document.getElementById('site-name').textContent = contentData.siteInfo.name;
     
-    // Update navigation
-    const navLinks = document.getElementById('nav-links');
-    navLinks.innerHTML = `
-        <li><a href="#about">${contentData.navigation.about}</a></li>
-        <li><a href="#places">${contentData.navigation.places}</a></li>
-        <li><a href="#contact">${contentData.navigation.contact}</a></li>
-    `;
-    
     // Update about section
     document.getElementById('about-title').textContent = contentData.sections.about.title;
     
@@ -45,17 +37,43 @@ function populateContent() {
     professionalImage.alt = "Professional Life - " + contentData.siteInfo.name;
     document.getElementById('professional-description').textContent = contentData.sections.about.professionalLife.description;
     
+    // Update debate life section if it exists
+    if (contentData.sections.about.debateLife) {
+        const debateImage = document.getElementById('debate-image');
+        if (debateImage) {
+            debateImage.src = contentData.sections.about.debateLife.image;
+            debateImage.alt = "Debate Life - " + contentData.siteInfo.name;
+        }
+        const debateDescription = document.getElementById('debate-description');
+        if (debateDescription) {
+            debateDescription.textContent = contentData.sections.about.debateLife.description;
+        }
+    }
+    
     // Update places section
     document.getElementById('places-title').textContent = contentData.sections.places.title;
     document.getElementById('places-description').textContent = contentData.sections.places.description;
     
-    // Update contact section
-    document.getElementById('contact-title').textContent = contentData.sections.contact.title;
-    document.getElementById('contact-description').textContent = contentData.sections.contact.description;
+    // Update Say Hi section
+    document.getElementById('say-hi-title').textContent = contentData.sections.sayHi.title;
+    document.getElementById('say-hi-description').textContent = contentData.sections.sayHi.description;
     
-    // Update social links
-    const socialLinks = document.getElementById('social-links');
-    socialLinks.innerHTML = contentData.socialMedia.map(social => `
+    // Update casual social links
+    const casualSocialLinks = document.getElementById('casual-social-links');
+    casualSocialLinks.innerHTML = contentData.casualSocialMedia.map(social => `
+        <a href="${social.url}" target="_blank" class="social-link ${social.name.toLowerCase()}">
+            <i class="${social.icon} social-icon"></i>
+            <span class="social-text">${social.name}</span>
+        </a>
+    `).join('');
+    
+    // Update Professional section
+    document.getElementById('professional-title').textContent = contentData.sections.professional.title;
+    document.getElementById('professional-contact-description').textContent = contentData.sections.professional.description;
+    
+    // Update professional social links
+    const professionalSocialLinks = document.getElementById('professional-social-links');
+    professionalSocialLinks.innerHTML = contentData.professionalSocialMedia.map(social => `
         <a href="${social.url}" target="_blank" class="social-link ${social.name.toLowerCase()}">
             <i class="${social.icon} social-icon"></i>
             <span class="social-text">${social.name}</span>
@@ -63,7 +81,7 @@ function populateContent() {
     `).join('');
     
     // Update bakery section
-    document.getElementById('bakery-description').textContent = contentData.sections.contact.bakeryDescription;
+    document.getElementById('bakery-description').textContent = contentData.sections.professional.bakeryDescription;
     
     // Update bakery social links
     const bakerySocialLinks = document.getElementById('bakery-social-links');
@@ -78,33 +96,7 @@ function populateContent() {
     document.getElementById('footer-copyright').textContent = contentData.footer.copyright;
 }
 
-function setupNavigation() {
-    // Smooth scrolling for navigation links
-    const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
-    
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            
-            if (targetSection) {
-                const headerHeight = document.querySelector('header').offsetHeight;
-                const targetPosition = targetSection.offsetTop - headerHeight - 20;
-                
-                // Add active class to clicked link
-                navLinks.forEach(l => l.classList.remove('active'));
-                this.classList.add('active');
-                
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-    
+function setupScrollEffect() {
     // Add scroll effect to header
     let lastScroll = 0;
     window.addEventListener('scroll', function() {
@@ -115,35 +107,6 @@ function setupNavigation() {
             header.classList.add('scrolled');
         } else {
             header.classList.remove('scrolled');
-        }
-        
-        // Update active navigation based on scroll position
-        updateActiveNavigation();
-        
-        lastScroll = currentScroll;
-    });
-}
-
-function updateActiveNavigation() {
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
-    const headerHeight = document.querySelector('header').offsetHeight;
-    
-    let current = '';
-    
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop - headerHeight - 100;
-        const sectionHeight = section.offsetHeight;
-        
-        if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
-            current = section.getAttribute('id');
-        }
-    });
-    
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
-            link.classList.add('active');
         }
     });
 }

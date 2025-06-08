@@ -7,27 +7,36 @@ const contentData = {
   "navigation": {
     "about": "About",
     "places": "Places I have been",
-    "contact": "Contact"
+    "sayHi": "Say Hi",
+    "professional": "Professional"
   },
   "sections": {
     "about": {
       "title": "About Me",
       "personalLife": {
         "image": "photos/Capture.PNG",
-        "description": "Welcome to my website! I'm Tahiyat. My 'dak-naam' is Fahia. I'm from Dhaka, but for now, I live in Abu Dhabi. You might have caught me here on my website but If you lose me, you might find me screaming my lungs out in the podium. Or baking and decorating cakes for my baking side-hustle, stargazing at the beach, or the mountains or the countryside. If I am in the city you might catch me hovering around flower shops, or going for a late night drive around Saadiyat, or crafting up the perfect dipping sauce at your nearest hot-pot joint. If those don't work out you might find me hunting for discounted drug-store makeup. But chances are you might also sit next to me on a plane to a random country you've probably never heard of. Or you might just catch me at my bedroom with a Lululun face-mask on doomscrolling cute cow reels."
+        "description": "Welcome! I'm Tahiyat. If you're a close friend or family, you can use my 'dak-naam,' Fahia. I'm from Dhaka, but for now, I live in Abu Dhabi. You might have caught me here on my website but If you lose me, you might find me screaming my lungs out in the podium. Or baking and decorating cakes for my baking side-hustle, stargazing at the beach, or the mountains or the countryside. If I am in the city you might catch me hovering around flower shops, or going for a late night drive around Saadiyat, or crafting up the perfect dipping sauce at your nearest hot-pot joint. If those don't work out you might find me hunting for discounted drug-store makeup. But chances are you might also sit next to me on a plane to a random country you've probably never heard of. Or you might just catch me at my bedroom with a Lululun face-mask on doomscrolling cute cow reels."
       },
       "professionalLife": {
         "image": "photos/professional.PNG",
-        "description": "Oh I am also majoring in Economics at New York University Abu Dhabi. Catch me at the class of 2026 graduation!"
+        "description": "Oh I am also majoring in Economics at New York University Abu Dhabi. There are few things that I want to see more than Bangladesh grow into a prosperous nation where it's people are happy and empowered. And I've dedicated myself to finding out every way to do my part."
+      },
+      "debateLife": {
+        "image": "photos/debate.PNG",
+        "description": "When I am not pondering about Development Economics, I am probably debating about it. I've spent the better half of my life screaming my lungs out on the podium. Debating gave me some of my closest friends, the ability to think critically that will stay with me for life, and some of my fondest memories. Even if I don't get to debate as much as I used to, I look back on my achievements fondly and am grateful for all the opportunities it has given me."
       }
     },
     "places": {
       "title": "I can be your tour guide",
       "description": "I didn't travel abroad at all until I went to University. And then I visited 12 countries in 2 years. Getting to visit all these countries are a core life experience for me, and you should come along with me! Click on the markers to explore the places I've visited and read about my experiences. "
     },
-    "contact": {
-      "title": "Contact",
-      "description": "Say hi (or offer me a job)",
+    "sayHi": {
+      "title": "Say Hi",
+      "description": "If you want to talk about Bollywood for hours on end, you know what to do."
+    },
+    "professional": {
+      "title": "Lets work together",
+      "description": "I'd love to know about what you are working on and I might be able to lend you a brain!",
       "bakeryDescription": "Do you want to order a cake?"
     }
   },
@@ -131,7 +140,7 @@ const contentData = {
       "story": "MY ULTIMATE DREAM DESTINATION"
     }
   ],
-  "socialMedia": [
+  "casualSocialMedia": [
     {
       "name": "Instagram",
       "url": "https://www.instagram.com/tahiyat_ahmed/",
@@ -141,11 +150,18 @@ const contentData = {
       "name": "Facebook",
       "url": "https://www.facebook.com/syedatahiyat.ahmed/",
       "icon": "fab fa-facebook-f"
-    },
+    }
+  ],
+  "professionalSocialMedia": [
     {
       "name": "LinkedIn",
       "url": "https://www.linkedin.com/in/syeda-tahiyat-ahmed-b798a0327/",
       "icon": "fab fa-linkedin-in"
+    },
+    {
+      "name": "Email",
+      "url": "mailto:syedatahiyatahmed@gmail.com",
+      "icon": "fas fa-envelope"
     }
   ],
   "bakerySocialMedia": [
