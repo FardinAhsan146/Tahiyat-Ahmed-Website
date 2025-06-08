@@ -19,7 +19,7 @@ const contentData = {
       },
       "professionalLife": {
         "image": "photos/professional.PNG",
-        "description": "Oh I am also majoring in Economics at New York University Abu Dhabi. There are few things that I want to see more than Bangladesh grow into a prosperous nation where it's people are happy and empowered. And I've dedicated myself to finding out every way to do my part."
+        "description": "Btw I am majoring in Economics at New York University Abu Dhabi. There are few things that I want to see more than Bangladesh grow into a prosperous nation where it's people are happy and empowered. And I've dedicated myself to finding out every way to do my part."
       },
       "debateLife": {
         "image": "photos/debate2.PNG",

@@ -865,7 +865,7 @@ section p {
 
 /* Add a subtle bakery icon or decoration */
 .bakery-section h3::before {
-    content: '🧁';
+    content: '🐝';
     display: block;
     font-size: 2.5rem;
     margin-bottom: 0.5rem;
