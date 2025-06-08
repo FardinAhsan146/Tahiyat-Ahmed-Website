@@ -23,7 +23,7 @@ const contentData = {
       },
       "debateLife": {
         "image": "photos/debate2.PNG",
-        "description": "When I am not pondering about Development Economics, I am probably debating about it. I've spent the better half of my life screaming my lungs out on the podium. Debating gave me some of my closest friends, the ability to think critically that will stay with me for life, and some of my fondest memories. Even if I don't get to debate as much as I used to, I look back on my achievements fondly and am grateful for all the opportunities it has given me."
+        "description": "When I am not pondering about Development Economics, I am probably debating about it. I've spent the better half of my life screaming my lungs out on the podium. Debating gave me some of my closest friends, the ability to think critically that will stay with me for life, and some of my fondest memories. Even if I don't get to debate as much as I used to, I look back to going home late after practice sessions with my dad and am grateful for all the opportunities it has given me. Opportunities neither me or my dad could have imagined at that time."
       }
     },
     "places": {
