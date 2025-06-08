@@ -23,7 +23,7 @@ const contentData = {
       },
       "debateLife": {
         "image": "photos/debate2.PNG",
-        "description": "When I am not pondering about Development Economics, I am probably debating about it. I've spent the better half of my life screaming my lungs out on the podium. Debating gave me some of my closest friends, the ability to think critically that will stay with me for life, and some of my fondest memories. Even if I don't get to debate as much as I used to, I look back to going home late after practice sessions with my dad and am grateful for all the opportunities it has given me. Opportunities neither me or my dad could have imagined at that time."
+        "description": "When I am not pondering about Development Economics, I am probably debating about it. I've spent the better half of my life screaming my lungs out on the podium. Debating gave me some of my closest friends, the ability to think critically that will stay with me for life, and some of my fondest memories. Even if I don't get to debate as much as I used to, I look back to going home late after practice sessions with my dad, and am grateful for all the opportunities it has given me. Opportunities neither me or my dad could have imagined at that time."
       }
     },
     "places": {
@@ -95,7 +95,7 @@ const contentData = {
       "lat": 35.8989,
       "lng": 14.5146,
       "image": "country_photos/Malta.jpg",
-      "story": "Yes, Malta is a country and I visited it. And you should too if you want a low-key meddetirranean vacation with great seafood."
+      "story": "Yes, Malta is a country and I visited it. And you should too if you want a low-key mediterranean vacation with great seafood."
     },
     {
       "name": "Tirana, Albania",
