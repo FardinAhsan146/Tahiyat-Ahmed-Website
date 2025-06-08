@@ -28,7 +28,7 @@ const contentData = {
     },
     "places": {
       "title": "I can be your tour guide",
-      "description": "I didn't travel abroad at all until I went to University. And then I visited 12 countries in 2 years. Getting to visit all these countries are a core life experience for me, and you should come along with me! Click on the markers to explore the places I've visited and read about my experiences. "
+      "description": "I didn't travel abroad at all until I went to University. And then I visited 12 countries in 2 years. Travelling is a core part of my story and indentity now. Click on the markers to explore the places I've visited and read about my experiences. "
     },
     "sayHi": {
       "title": "Say Hi",

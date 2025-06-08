@@ -52,7 +52,14 @@ function populateContent() {
     
     // Update places section
     document.getElementById('places-title').textContent = contentData.sections.places.title;
-    document.getElementById('places-description').textContent = contentData.sections.places.description;
+    
+    // Split the description - main text and subtext
+    const fullDescription = contentData.sections.places.description;
+    const mainDescription = "I didn't travel abroad at all until I went to University. And then I visited 12 countries in 2 years. Travelling is a core part of my story and indentity now.";
+    const subtext = "Click on the markers to explore the places I've visited and read about my experiences.";
+    
+    document.getElementById('places-description').textContent = mainDescription;
+    document.getElementById('places-subtext').textContent = subtext;
     
     // Update Say Hi section
     document.getElementById('say-hi-title').textContent = contentData.sections.sayHi.title;
