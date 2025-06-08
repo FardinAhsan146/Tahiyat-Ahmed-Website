@@ -22,7 +22,7 @@ const contentData = {
         "description": "Oh I am also majoring in Economics at New York University Abu Dhabi. There are few things that I want to see more than Bangladesh grow into a prosperous nation where it's people are happy and empowered. And I've dedicated myself to finding out every way to do my part."
       },
       "debateLife": {
-        "image": "photos/debate.PNG",
+        "image": "photos/debate2.PNG",
         "description": "When I am not pondering about Development Economics, I am probably debating about it. I've spent the better half of my life screaming my lungs out on the podium. Debating gave me some of my closest friends, the ability to think critically that will stay with me for life, and some of my fondest memories. Even if I don't get to debate as much as I used to, I look back on my achievements fondly and am grateful for all the opportunities it has given me."
       }
     },

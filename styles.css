@@ -488,66 +488,6 @@ section {
     animation-duration: 5.2s;
 }
 
-/* Debate image switching effect */
-.debate-image-container {
-    position: relative;
-    width: 100%;
-    cursor: pointer;
-    overflow: hidden;
-}
-
-.debate-img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: var(--shadow-deep);
-    transition: all 0.3s ease;
-    display: block;
-}
-
-.debate-img:first-child {
-    display: none;
-}
-
-.debate-image-container:hover .debate-img:first-child {
-    display: block;
-}
-
-.debate-image-container:hover .debate-img:last-child {
-    display: none;
-}
-
-.debate-image-wrapper img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: var(--shadow-deep);
-    transition: all 0.3s ease;
-}
-
-.debate-image-wrapper:hover img {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-hover);
-}
-
-/* Adjust emoji animations for debate images */
-.debate-image-wrapper .emoji-animation {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    overflow: visible;
-    z-index: 0;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.debate-image-wrapper:hover .emoji-animation {
-    z-index: 10;
-    opacity: 1;
-}
 
 .sparkles-animation .sparkle:nth-child(5) {
     top: 50%;
