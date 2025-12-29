@@ -186,6 +186,7 @@ function initializeWorldMap() {
         'Georgia': 'ge',
         'India': 'in',
         'Japan': 'jp',
+        'Sri Lanka': 'lk',     // Sri Lanka flag
         'Antarctica': 'aq'     // Antarctica flag
     };
     

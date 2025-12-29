@@ -134,6 +134,13 @@ const contentData = {
       "story": "My time in Japan was surreal. I spent two weeks at a summer teaching program and it was one of the most transforamtive experiences of my life as I taught kids about Climate Change, lived with them 24/7 and helped them through their highs and lows. Nowhere else did I develop such a close bond with so many people in such a short amount of time."
     },
     {
+      "name": "Colombo, Sri Lanka",
+      "lat": 6.9271,
+      "lng": 79.8612,
+      "image": "country_photos/sri lanka.png",
+      "story": "The nicest people I ever met! Oh I also saw pristine beaches and lizards and elephants and deer and crocodiles! Oh and it's a veryyy affordable last minute vacation spot incase you were wondering."
+    },
+    {
       "name": "Antarctica",
       "lat": -82.8628,
       "lng": 135.0000,
