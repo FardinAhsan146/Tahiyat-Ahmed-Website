@@ -97,6 +97,27 @@ function populateContent() {
         </a>
     `).join('');
     
+    // Update projects section
+    if (contentData.projects) {
+        const projectsGrid = document.getElementById('projects-grid');
+        if (projectsGrid) {
+            projectsGrid.innerHTML = contentData.projects.map(project => `
+                <div class="project-card">
+                    <div class="project-card-image">
+                        <img src="${project.image}" alt="${project.title}" />
+                    </div>
+                    <div class="project-card-content">
+                        <h3>${project.title}</h3>
+                        <p>${project.description}</p>
+                        <a href="${project.github}" target="_blank" class="project-card-link">
+                            <i class="fab fa-github"></i> View on GitHub
+                        </a>
+                    </div>
+                </div>
+            `).join('');
+        }
+    }
+
     // Update footer
     document.getElementById('footer-copyright').textContent = contentData.footer.copyright;
 }

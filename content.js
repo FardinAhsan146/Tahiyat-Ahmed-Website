@@ -148,6 +148,20 @@ const contentData = {
       "story": "MY ULTIMATE DREAM DESTINATION"
     }
   ],
+  "projects": [
+    {
+      "title": "Nepal Census Analysis",
+      "image": "photos/nepal-census.png",
+      "description": "A data analysis project comparing Nepal's 2021 Census results against 2011 population projections. Using GPT 4.5V for PDF extraction, Python for data processing, and R for visualization, this project analyzes demographic shifts across all 75 districts of Nepal, covering age, gender, and geographic belt breakdowns.",
+      "github": "https://github.com/SyedaTahiyatAhmed/nepal-census"
+    },
+    {
+      "title": "Jantu Capitals",
+      "image": "photos/jantu-capitals.png",
+      "description": "A comprehensive dataset and analysis of world capital cities, classifying them as coastal or non-coastal using distance-based logic. Covers 250 countries across 13 indicators including population, GDP, HDI, polity scores, and corruption indices, with an interactive dashboard for exploring the data.",
+      "github": "https://github.com/SyedaTahiyatAhmed/jantu-capitals"
+    }
+  ],
   "casualSocialMedia": [
     {
       "name": "Instagram",
@@ -170,6 +184,11 @@ const contentData = {
       "name": "Email",
       "url": "mailto:syedatahiyatahmed@gmail.com",
       "icon": "fas fa-envelope"
+    },
+    {
+      "name": "GitHub",
+      "url": "https://github.com/SyedaTahiyatAhmed",
+      "icon": "fab fa-github"
     }
   ],
   "bakerySocialMedia": [
