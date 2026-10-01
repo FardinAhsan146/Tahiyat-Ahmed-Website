@@ -1,209 +1,167 @@
-// Content data for the website
-const contentData = {
-  "siteInfo": {
-    "name": "Syeda Tahiyat Ahmed",
-    "title": "Syeda Tahiyat Ahmed - Portfolio"
+// Travel story shown on the map, in chronological order.
+// flag: file name in flags/ (flag-icons, 4x3)
+// iso:  ISO 3166-1 numeric code, used to shade the country on the map
+// zoom: optional, how close the story slideshow flies in (default 4)
+// view: optional [lat, lng] to aim the camera at instead of the place itself
+// focus: "x,y" percentages of the photo to keep centred (her face) when it's cropped
+// dream: true marks a place she hasn't been yet (no country shading, no trail)
+const travelStory = [
+  {
+    "name": "Dhaka, Bangladesh",
+    "lat": 23.8103,
+    "lng": 90.4125,
+    "flag": "bd",
+    "iso": "050",
+    "image": "country_photos/dhaka.webp",
+    "focus": "50,59",
+    "story": "Where it all began. I grew up here and despite how many countries I visit, Dhaka will still be my heart and my home."
   },
-  "navigation": {
-    "about": "About",
-    "places": "Places I have been",
-    "sayHi": "Say Hi",
-    "professional": "Professional"
+  {
+    "name": "Abu Dhabi, UAE",
+    "lat": 24.4539,
+    "lng": 54.3773,
+    "flag": "ae",
+    "iso": "784",
+    "image": "country_photos/uae.webp",
+    "focus": "53,67",
+    "story": "My first step outside of Dhaka. My home for now at NYUAD."
   },
-  "sections": {
-    "about": {
-      "title": "About Me",
-      "personalLife": {
-        "image": "photos/Capture.PNG",
-        "description": "Welcome! I'm Tahiyat. If you're a close friend or family, you can use my 'dak-naam,' Fahia. I'm from Dhaka, but for now, I live in Abu Dhabi. You might have caught me here on my website but If you lose me, you might find me baking and decorating cakes for my baking side-hustle, stargazing at the beach, or the mountains or the countryside. If I am in the city you might catch me hovering around flower shops, or crafting up the perfect dipping sauce at your nearest hot-pot joint, or hunting for discounted drug-store makeup. But chances are you might also sit next to me on a plane to a random country you've probably never heard of. Or you might just catch me at my bedroom with a Lululun face-mask on doomscrolling cute cow reels."
-      },
-      "professionalLife": {
-        "image": "photos/professional.PNG",
-        "description": "Btw I am majoring in Economics at New York University Abu Dhabi. There are few things that I want to see more than Bangladesh grow into a prosperous nation where it's people are happy and empowered. And I've dedicated myself to finding out every way to do my part."
-      },
-      "debateLife": {
-        "image": "photos/debate2.PNG",
-        "description": "When I am not pondering about Development Economics, I am probably debating about it. I've spent the better half of my life screaming my lungs out on the podium. Debating gave me some of my closest friends, the ability to think critically that will stay with me for life, and some of my fondest memories. Even if I don't get to debate as much as I used to, I look back to going home late after practice sessions with my dad, and am grateful for all the opportunities it has given me. Opportunities neither me or my dad could have imagined at that time."
-      }
-    },
-    "places": {
-      "title": "I can be your tour guide",
-      "description": "I didn't travel abroad at all until I went to University. And then I visited 12 countries in 2 years. Travelling is a core part of my story and indentity now.",
-      "subtext": "Click on a flag."
-    },
-    "sayHi": {
-      "title": "Say Hi",
-      "description": "If you want to talk about Bollywood for hours on end, you know what to do."
-    },
-    "professional": {
-      "title": "Lets work together",
-      "description": "I'd love to know about what you are working on and I might be able to lend you a brain!",
-      "bakeryDescription": "Do you want to order a cake?"
-    }
+  {
+    "name": "Tbilisi, Georgia",
+    "lat": 41.7151,
+    "lng": 44.8271,
+    "flag": "ge",
+    "iso": "268",
+    "image": "country_photos/georgia.webp",
+    "focus": "50,46",
+    "story": "My first international trip with friends! I might go back soon! 🌚"
   },
-  "locations": [
-    {
-      "name": "Dhaka, Bangladesh",
-      "lat": 23.8103,
-      "lng": 90.4125,
-      "image": "country_photos/dhaka.jpg",
-      "story": "Where it all began. I grew up here and despite how many countries I visit, Dhaka will still be my heart and my home."
-    },
-    {
-      "name": "Abu Dhabi, UAE",
-      "lat": 24.4539,
-      "lng": 54.3773,
-      "image": "country_photos/uae.jpg",
-      "story": "My first step outside of Dhaka. My home for now at NYUAD."
-    },
-    {
-      "name": "Doha, Qatar",
-      "lat": 25.2854,
-      "lng": 51.5310,
-      "image": "country_photos/qatar.jpg",
-      "story": "I came here for a Debate at Georgetown Qatar."
-    },
-    {
-      "name": "London, UK",
-      "lat": 51.5072,
-      "lng": -0.1276,
-      "image": "country_photos/london.jpg",
-      "story": "I had my first study abroad experience at NYU London. My first view into \"The West\". I fell in love with the historic architecture, and posh London vibes. (I like it more than NYC)"
-    },
-    {
-      "name": "New York City, USA",
-      "lat": 40.7128,
-      "lng": -74.0060,
-      "image": "country_photos/america.jpg",
-      "story": "I've dreamt of doing a study-abroad at NYU and living that NYC girly life since my first day at NYAUD. That life was everything I imagined and more, I can't wait to go back."
-    },
-    {
-      "name": "Edinburgh, Scotland",
-      "lat": 55.9533,
-      "lng": -3.1883,
-      "image": "country_photos/scotland.jpg",
-      "story": "It's beautiful. Dark and gloomy, but beautiful."
-    },
-    {
-      "name": "Cardiff, Wales",
-      "lat": 51.4816,
-      "lng": -3.1791,
-      "image": "country_photos/wales.jpg",
-      "story": "Studying abroad in Londom meant I can just take a weekend trip to Wales. Oh and I wore a saree in the streets of Cardiff!"
-    },
-    {
-      "name": "Valletta, Malta",
-      "lat": 35.8989,
-      "lng": 14.5146,
-      "image": "country_photos/Malta.jpg",
-      "story": "Yes, Malta is a country and I visited it. And you should too if you want a low-key mediterranean vacation with great seafood."
-    },
-    {
-      "name": "Tirana, Albania",
-      "lat": 41.3275,
-      "lng": 19.8187,
-      "image": "country_photos/albania.PNG",
-      "story": "One of the most underrated countries in Europe. The Blue Eye Springs is one of the most beautiful places I've been."
-    },
-    {
-      "name": "Podgorica, Montenegro",
-      "lat": 42.4304,
-      "lng": 19.2594,
-      "image": "country_photos/montenegro.jpg",
-      "story": "Montenegro is also a country and I visited it. Can you believe it? I visited Montenegro!"
-    },
-    {
-      "name": "Tbilisi, Georgia",
-      "lat": 41.7151,
-      "lng": 44.8271,
-      "image": "country_photos/georgia.jpg",
-      "story": "My first international trip with friends! I might go back soon! 🌚"
-    },
-    {
-      "name": "New Delhi, India",
-      "lat": 28.6139,
-      "lng": 77.2090,
-      "image": "country_photos/india.jpg",
-      "story": "I came here for a Debate! I visited IIT Delhi and the legendary Leopold Cafe in Mumbai"
-    },
-    {
-      "name": "Tokyo, Japan",
-      "lat": 35.6762,
-      "lng": 139.6503,
-      "image": "country_photos/japan.PNG",
-      "story": "My time in Japan was surreal. I spent two weeks at a summer teaching program and it was one of the most transforamtive experiences of my life as I taught kids about Climate Change, lived with them 24/7 and helped them through their highs and lows. Nowhere else did I develop such a close bond with so many people in such a short amount of time."
-    },
-    {
-      "name": "Colombo, Sri Lanka",
-      "lat": 6.9271,
-      "lng": 79.8612,
-      "image": "country_photos/sri lanka.png",
-      "story": "The nicest people I ever met! Oh I also saw pristine beaches and lizards and elephants and deer and crocodiles! Oh and it's a veryyy affordable last minute vacation spot incase you were wondering."
-    },
-    {
-      "name": "Antarctica",
-      "lat": -82.8628,
-      "lng": 135.0000,
-      "image": "country_photos/antarctica.jpg",
-      "story": "MY ULTIMATE DREAM DESTINATION"
-    }
-  ],
-  "projects": [
-    {
-      "title": "Nepal Census Analysis",
-      "image": "photos/nepal-census.png",
-      "description": "A data analysis project comparing Nepal's 2021 Census results against 2011 population projections. Using GPT 4.5V for PDF extraction, Python for data processing, and R for visualization, this project analyzes demographic shifts across all 75 districts of Nepal, covering age, gender, and geographic belt breakdowns.",
-      "github": "https://github.com/SyedaTahiyatAhmed/nepal-census"
-    },
-    {
-      "title": "Jantu Capitals",
-      "image": "photos/jantu-capitals.png",
-      "description": "A comprehensive dataset and analysis of world capital cities, classifying them as coastal or non-coastal using distance-based logic. Covers 250 countries across 13 indicators including population, GDP, HDI, polity scores, and corruption indices, with an interactive dashboard for exploring the data.",
-      "github": "https://github.com/SyedaTahiyatAhmed/jantu-capitals"
-    }
-  ],
-  "casualSocialMedia": [
-    {
-      "name": "Instagram",
-      "url": "https://www.instagram.com/tahiyat_ahmed/",
-      "icon": "fab fa-instagram"
-    },
-    {
-      "name": "Facebook",
-      "url": "https://www.facebook.com/syedatahiyat.ahmed/",
-      "icon": "fab fa-facebook-f"
-    }
-  ],
-  "professionalSocialMedia": [
-    {
-      "name": "LinkedIn",
-      "url": "https://www.linkedin.com/in/syeda-tahiyat-ahmed-b798a0327/",
-      "icon": "fab fa-linkedin-in"
-    },
-    {
-      "name": "Email",
-      "url": "mailto:syedatahiyatahmed@gmail.com",
-      "icon": "fas fa-envelope"
-    },
-    {
-      "name": "GitHub",
-      "url": "https://github.com/SyedaTahiyatAhmed",
-      "icon": "fab fa-github"
-    }
-  ],
-  "bakerySocialMedia": [
-    {
-      "name": "Facebook",
-      "url": "https://www.facebook.com/BBBakingBee",
-      "icon": "fab fa-facebook-f"
-    },
-    {
-      "name": "Instagram",
-      "url": "https://www.instagram.com/bakingbeebakery/",
-      "icon": "fab fa-instagram"
-    }
-  ],
-  "footer": {
-    "copyright": "© 2025 Syeda Tahiyat Ahmed. All rights reserved."
+  {
+    "name": "New Delhi, India",
+    "lat": 28.6139,
+    "lng": 77.2090,
+    "flag": "in",
+    "iso": "356",
+    "image": "country_photos/india.webp",
+    "focus": "49,25",
+    "story": "I came here for a Debate! I visited IIT Delhi and the legendary Leopold Cafe in Mumbai"
+  },
+  {
+    "name": "Valletta, Malta",
+    "lat": 35.8989,
+    "lng": 14.5146,
+    "flag": "mt",
+    "iso": "470",
+    "zoom": 5,
+    "image": "country_photos/malta.webp",
+    "focus": "49,34",
+    "story": "Yes, Malta is a country and I visited it. And you should too if you want a low-key mediterranean vacation with great seafood."
+  },
+  {
+    "name": "Tokyo, Japan",
+    "lat": 35.6762,
+    "lng": 139.6503,
+    "flag": "jp",
+    "iso": "392",
+    "image": "country_photos/japan.webp",
+    "focus": "50,23",
+    "story": "My time in Japan was surreal. I spent two weeks at a summer teaching program and it was one of the most transformative experiences of my life as I taught kids about Climate Change, lived with them 24/7 and helped them through their highs and lows. Nowhere else did I develop such a close bond with so many people in such a short amount of time."
+  },
+  {
+    "name": "London, UK",
+    "lat": 51.5072,
+    "lng": -0.1276,
+    "flag": "gb",
+    "iso": "826",
+    "zoom": 5,
+    "image": "country_photos/london.webp",
+    "focus": "50,53",
+    "story": "I had my first study abroad experience at NYU London. My first view into \"The West\". I fell in love with the historic architecture, and posh London vibes. (I like it more than NYC)"
+  },
+  {
+    "name": "Cardiff, Wales",
+    "lat": 51.4816,
+    "lng": -3.1791,
+    "flag": "gb-wls",
+    "iso": "826",
+    "zoom": 5,
+    "image": "country_photos/wales.webp",
+    "focus": "48,57",
+    "story": "Studying abroad in London meant I can just take a weekend trip to Wales. Oh and I wore a saree in the streets of Cardiff!"
+  },
+  {
+    "name": "Edinburgh, Scotland",
+    "lat": 55.9533,
+    "lng": -3.1883,
+    "flag": "gb-sct",
+    "iso": "826",
+    "zoom": 5,
+    "image": "country_photos/scotland.webp",
+    "focus": "47,68",
+    "story": "It's beautiful. Dark and gloomy, but beautiful."
+  },
+  {
+    "name": "Podgorica, Montenegro",
+    "lat": 42.4304,
+    "lng": 19.2594,
+    "flag": "me",
+    "iso": "499",
+    "zoom": 6,
+    "image": "country_photos/montenegro.webp",
+    "focus": "46,52",
+    "story": "Montenegro is also a country and I visited it. Can you believe it? I visited Montenegro!"
+  },
+  {
+    "name": "Tirana, Albania",
+    "lat": 41.3275,
+    "lng": 19.8187,
+    "flag": "al",
+    "iso": "008",
+    "zoom": 6,
+    "image": "country_photos/albania.webp",
+    "focus": "47,44",
+    "story": "One of the most underrated countries in Europe. The Blue Eye Springs is one of the most beautiful places I've been."
+  },
+  {
+    "name": "Doha, Qatar",
+    "lat": 25.2854,
+    "lng": 51.5310,
+    "flag": "qa",
+    "iso": "634",
+    "zoom": 5,
+    "image": "country_photos/qatar.webp",
+    "focus": "49,51",
+    "story": "I came here for a Debate at Georgetown Qatar."
+  },
+  {
+    "name": "New York City, USA",
+    "lat": 40.7128,
+    "lng": -74.0060,
+    "flag": "us",
+    "iso": "840",
+    "image": "country_photos/america.webp",
+    "focus": "48,60",
+    "story": "I've dreamt of doing a study-abroad at NYU and living that NYC girly life since my first day at NYUAD. That life was everything I imagined and more, I can't wait to go back."
+  },
+  {
+    "name": "Colombo, Sri Lanka",
+    "lat": 6.9271,
+    "lng": 79.8612,
+    "flag": "lk",
+    "iso": "144",
+    "image": "country_photos/sri-lanka.webp",
+    "focus": "62,40",
+    "story": "The nicest people I ever met! Oh I also saw pristine beaches and lizards and elephants and deer and crocodiles! Oh and it's a veryyy affordable last minute vacation spot incase you were wondering."
+  },
+  {
+    "name": "Antarctica",
+    "lat": -75.0,
+    "lng": 40.0,
+    "flag": "aq",
+    "zoom": 2,
+    "view": [-58, 45],
+    "dream": true,
+    "image": "country_photos/antarctica.webp",
+    "story": "MY ULTIMATE DREAM DESTINATION"
   }
-};
+];
